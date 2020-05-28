@@ -1,8 +1,8 @@
-# Installing Home Assistant Supervised on Ubuntu
+## Installing Home Assistant Supervised on Ubuntu
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently this installation method is not officially supported by the Home Assistant team, and therefore you are responsible for updating and managing security on the base OS.
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently[u] this installation method is not officially supported[/u] by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
 
-In the guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not have a keyboard, mouse or monitor attached. You will manage and update the machine via terminal commands.
+In this guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not have a keyboard, mouse or monitor attached. You will manage and update the machine via terminal commands.
 
 *What is Home Assistant Supervised?*
 
@@ -10,7 +10,7 @@ Home Assistant is a full UI managed home automation ecosystem that runs Home Ass
 
 If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
 
-# Section 1 – Install Ubuntu Server
+## Section 1 – Install Ubuntu Server
 
 **1.1)** Start by downloading Ubuntu Server 18.04.04 from [HERE](https://ubuntu.com/download/alternative-downloads). This is a torrent file, so use your favourite torrent program.
 
@@ -44,7 +44,7 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 
 The installation will now continue automatically. When it has completed (5-15mins), you will see REBOOT at the bottom of the screen. Before rebooting, remove your USB drive, then press enter to reboot. While rebooting, you can also remove the keyboard, mouse and monitor as you will no longer need them.
 
-# Section 2 – Install Home Assistant Supervised
+## Section 2 – Install Home Assistant Supervised
 
 Now that you have Ubuntu installed, you can move on to installing Home Assistant Supervised.
 
@@ -73,15 +73,17 @@ curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supe
 
 **2.3)** On a PC or NUC the installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
 
-Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document Backing up and Restoring your configuration.
+Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document *Backing up and Restoring your configuration.*
 
 That’s it, you have now installed Home Assistant Supervised on Ubuntu server and have SSH access to your machine to keep it up to date. It is recommended that you log into your machine using Putty at least once a month and use the following command to download security patches and keep the OS up to date.
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
 ```
-Along with this guide, there is also associated documents available on my github [HERE](https://github.com/Kanga-Who/home-assistant)
+Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
 - Install Samba, Portainer and MQTT on Ubuntu Server 18.04.04
 - Backing up and Restoring your configuration
+
+I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
 Thank you to contributors, [nickrout](https://community.home-assistant.io/u/nickrout/), [finity](https://community.home-assistant.io/u/finity) and [flamingm0e](https://community.home-assistant.io/u/flamingm0e)
