@@ -83,7 +83,7 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When
 finished, you will see the prompt.
 
-2.2) Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands
+**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands
 one at a time and paste them into the Putty window, and press ENTER.
 ```
 sudo -i
@@ -94,7 +94,7 @@ curl -fsSL get.docker.com | sh
 curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s
 ```
 
-2.3) On a PC or NUC the installation time is generally under 5 mins, however it can take longer so be patient. You can check the
+**2.3)** On a PC or NUC the installation time is generally under 5 mins, however it can take longer so be patient. You can check the
 progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
 
 Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document Backing up and Restoring your configuration.
