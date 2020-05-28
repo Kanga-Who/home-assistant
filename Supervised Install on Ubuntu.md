@@ -21,7 +21,7 @@ in the same folder as this document.
 
 # Section 1 – Install Ubuntu Server
 
-**1.1)** Start by downloading Ubuntu Server 18.04.04 from HERE. This is a torrent file, so use your favourite torrent program.
+**1.1)** Start by downloading Ubuntu Server 18.04.04 from [HERE](https://ubuntu.com/download/alternative-downloads). This is a torrent file, so use your favourite torrent program.
 
 **1.2)** While Ubuntu is downloading, you will need some other programs to help with the setup and installation. To burn the
 Ubuntu ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://releases.ubuntu.com/20.04/). You
