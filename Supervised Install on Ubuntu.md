@@ -56,8 +56,7 @@ Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Ubuntu 
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
-Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When
-finished, you will see the prompt.
+Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When finished, you will see the prompt.
 
 **2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER.
 ```
