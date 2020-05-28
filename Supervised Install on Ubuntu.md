@@ -5,10 +5,9 @@ on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and De
 currently this installation method is not officially supported by the Home Assistant team, and therefore you are responsible for
 updating and managing security on the base OS.
 
-In the guide, you will be using Ubuntu Server 18.04.04 as the operating system. Thistype of installation is what is called “headless”
-and after the installation is complete, you will not have a keyboard, mouse or monitor attached. You will manage and update the
-machine via terminal commands.
-What is Home Assistant Supervised?
+In the guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not have a keyboard, mouse or monitor attached. You will manage and update the machine via terminal commands.
+
+*What is Home Assistant Supervised?*
 
 In January 2020 the Home Assistant team made naming changes to different installation types. The version formerly known as
 Hass.io is now called Home Assistant Supervised. This is an installation of Home Assistant Core and the Supervisor component
@@ -87,10 +86,15 @@ finished, you will see the prompt.
 one at a time and paste them into the Putty window, and press ENTER.
 ```
 sudo -i
+
 apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+
 systemctl disable ModemManager
+
 systemctl stop ModemManager
+
 curl -fsSL get.docker.com | sh
+
 curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s
 ```
 
@@ -109,3 +113,5 @@ Along with this guide, there is also associated documents;
 
 - Install Samba, Portainer and MQTT on Ubuntu Server 18.04.04
 - Backing up and Restoring your configuration
+
+Thank you to contributors, [nickrout](https://community.home-assistant.io/u/nickrout/), [finity](https://community.home-assistant.io/u/finity) and [flamingm0e](https://community.home-assistant.io/u/flamingm0e)
