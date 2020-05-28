@@ -95,19 +95,17 @@ curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supe
 ```
 
 2.3) On a PC or NUC the installation time is generally under 5 mins, however it can take longer so be patient. You can check the
-progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g.
-http://192.168.1.150:8123) Once you can see the login screen, the setup has been completed and you can set up an
-account name and password. If you are new to Home Assistant you can now configure any smart devices that Home
-Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a
-snapshot or YAML files you wish to restore, refer to the document Backing up and Restoring your configuration.
+progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
+
+Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document Backing up and Restoring your configuration.
 
 That’s it, you have now installed Home Assistant Supervised on Ubuntu server and have SSH access to your machine to keep it up
 to date. It is recommended that you log into your machine using Putty at least once a month and use the following command to
 download security patches and keep the OS up to date.
-
+```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
-
+```
 Along with this guide, there is also associated documents;
 
-    Install Samba, Portainer and MQTT on Ubuntu Server 18.04.04
-    Backing up and Restoring your configuration
+- Install Samba, Portainer and MQTT on Ubuntu Server 18.04.04
+- Backing up and Restoring your configuration
