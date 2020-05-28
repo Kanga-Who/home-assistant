@@ -16,18 +16,17 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 
 **1.2)** While Ubuntu is downloading, you will need some other programs to help with the setup and installation. To burn the Ubuntu ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://releases.ubuntu.com/20.04/). You will also use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). 
 
-Putty is a free and open-source terminal emulator, serial console and network file transfer application. You will use Putty to execute commands on the Ubuntu machine from your
-Windows PC. (Use Terminal on a Mac).
+Putty is a free and open-source terminal emulator, serial console and network file transfer application. You will use Putty to execute commands on the Ubuntu machine from your Windows PC. (Use Terminal on a Mac).
 
-**1.3)** You will now create a bootable USB drive using Rufus and the Ubuntu image you have downloaded. Open Rufus and choose your USB from the drop-down menu and then select the Ubuntu ISO image you downloaded and click Start. If you get any prompts, select OK or Yes to continue.
+**1.3)** You will now create a bootable USB drive using Rufus and the Ubuntu image you have downloaded. Insert a blank USB drive of at least 8gb into your PC, open Rufus and choose your USB from the drop-down menu. Now select the Ubuntu ISO image you downloaded, and click Start. If you get any prompts, select OK or Yes to continue.
 
 **1.4)** Insert the USB you have just made into the new machine, connect a monitor, Ethernet cable, keyboard and mouse, and power on the machine. You will need to select the USB drive as the boot device, to do this, you will need to press something like F12 or DEL on your keyboard immediately when the machine is powered on.
 
-**1.5)** The first screen you should be able to select from is the **Welcome screen** where you will select your language.
+**1.5)** The first screen you should be able to select from is the **Welcome** screen where you will select your language.
 
 **1.6)** Next will be **Keyboard Configuration**. If you are using something other than English US, use the arrow keys on your keyboard to arrow up and select the correct type. When the correct selection is made, select DONE.
 
-**1.7)** Next will be **Network Connections**. Make sure you can see an IP listed. Depending on your network configuration, it will show something like DHCPv4 192.168.1.150/24. The info you need to make a note of here is the IP as you will use this to connect to the machine later, in this case, 192.168.1.150.
+**1.7)** Next will be **Network Connections**. Make sure you can see an IP listed. Depending on your network configuration, it will show something like `DHCPv4 192.168.1.150/24`. The info you need to make a note of here is the IP as you will use this to connect to the machine later, in this case, 192.168.1.150.
 
 **1.8)** Next will be **Configure Proxy**. Skip this screen by selecting DONE, we do not need to enter anything.
 
@@ -35,12 +34,11 @@ Windows PC. (Use Terminal on a Mac).
 
 **1.10)** Next will be **Installer Update**. We do necessarily need to update the installer, so select CONTINUE WITHOUT UPDATING.
 
-**1.11)** Next will be **Filesystem Setup**. Select USE AN ENTIRE DISK and then on the next screen select the disk you wish to use. Then on the next screen, select DONE and the CONTINUE.
+**1.11)** Next will be **Filesystem Setup**. Select USE AN ENTIRE DISK and then on the next screen select the disk you wish to use. Then on the next screen, select DONE and then CONTINUE.
 
 **1.12)** Next will be **Profile Setup**. Enter your name, choose a name for your server (i.e. ubuntu-server) and enter a password. Make note of the username and password you choose here, this is what you will use to connect to the machine later.
 
-**1.13)** Next will be **SSH Setup**. You will press SPACEBAR to place and X in the box next to INSTALL OPEN SSH SERVER, then arrow
-down to DONE.
+**1.13)** Next will be **SSH Setup**. You will press SPACEBAR to place and X in the box next to INSTALL OPEN SSH SERVER, then arrow down to DONE.
 
 **1.14)** Next will be **Featured Server Snaps**. We do not need to select anything on this screen, arrow down to DONE. 
 
