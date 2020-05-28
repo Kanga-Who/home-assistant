@@ -50,7 +50,7 @@ The installation will now continue automatically. When it has completed (5-15min
 
 Now that you have Ubuntu installed, you can move on to installing Home Assistant Supervised.
 
-**2.1)** First you will start by updating Ubuntu to make sure all the latest updates and security patches are install. To do this you will use Putty to connect via SSH and copy and paste some commands. To connect to the Ubuntu machine via Putty, you will need the IP of the machine from Step 1.7, and the username and password you created from Step 1.12.
+**2.1)** First you will start by updating Ubuntu to make sure all the latest updates and security patches are installed. To do this you will use Putty to connect via SSH and copy and paste some commands. To connect to the Ubuntu machine via Putty, you will need the IP of the machine from Step 1.7, and the username and password you created from Step 1.12.
 
 Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Ubuntu machine, then select OPEN. You will now be prompted to enter your username (login as:) and password. Now that you have logged in, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
 ```
