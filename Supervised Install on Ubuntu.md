@@ -6,9 +6,9 @@ In the guide, you will be using Ubuntu Server 18.04.04 as the operating system. 
 
 *What is Home Assistant Supervised?*
 
-In January 2020 the Home Assistant team made naming changes to different installation types. The version formerly known as Hass.io is now called Home Assistant Supervised. This is an installation of Home Assistant Core and the Supervisor component which helps to manage updates to Home Assistant and has the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment, plus a number of other containers used to support the Home Assistant environment.
+Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located in the same folder as this document.
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
 
 # Section 1 – Install Ubuntu Server
 
