@@ -43,7 +43,7 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 
 **1.15)**	Next will be **Install the GRUB bootloader**. Select **Yes** and click continue. Now select the drive you are installing Debian on, and click continue. The installer will now perform some automated tasks. This will take 1-2 mins and then installation will be complete.
 
-**1.16)** On debian your user will not be a member of the sudo group so cannot run administrative commands. After the system has rebooted, log in as the root user and the pasword you set during **Step 1.10.** To add your user to the sudo group enter this command, and press Enter. 
+**1.16)** On Debian your user will not be a member of the sudo group so cannot run administrative commands. After the system has rebooted, log in as the root user and the password you set during **Step 1.10.** To add your user to the sudo group enter this command, and press Enter. 
 
 ```
 usermod -aG sudo username
