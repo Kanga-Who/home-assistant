@@ -1,4 +1,4 @@
-# Section 1 – Backing up your configuration
+## Section 1 – Backing up your configuration
 
 In this section, you will learn how to save a snapshot and backup the configuration files and folders from your Home Assistant machine. To do this, you will use a program called WinSCP available [HERE](https://winscp.net/eng/docs/guide_install). Download and install WinSCP and then move on. If you are not using a version of Home Assistant with the Supervisor, skip step 1.1 and move on to 1.2.
 
@@ -17,7 +17,7 @@ You can now use this snapshot to restore your configuration on a new install fol
 
 You will also want to make a backup of the hidden `.storage` folder. To enable WinSCP to see this folder, you will need to do the following. In WinSCP, click on *Options – Preferences – Panels – Remote*, and make sure to check the box for *Show Inaccessible Directories*.
 
-# Section 2a – Restore a Snapshot
+## Section 2a – Restore a Snapshot
 
 In this section, you will learn how to restore a snapshot you have taken from another Home Assistant machine.
 
@@ -33,7 +33,7 @@ sudo chmod -R 777 /usr/share/hassio/backup
 
 **2.3a)** Once you have copied the snapshot into the `/usr/share/hassio/backup` folder, you can go back to the Home Assistant web interface, and navigate to the Supervisor section, click on the Snapshots tab and click the refresh icon on the top right of the screen. You should see your snapshot appear and can now restore it. You machine will now take some time to restore and will reboot Home Assistant. This process normally takes about 5-10 minutes.
 
-# Section 2b – Restore YAML files and folders
+## Section 2b – Restore YAML files and folders
 
 In this section, you will learn how to restore YAML files and folders you have backed up from another Home Assistant machine. To do this, you will use a program called WinSCP available HERE. Download and install WinSCP and then move on.
 
