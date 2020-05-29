@@ -1,6 +1,6 @@
 ## Installing Home Assistant Supervised on Debian
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including a Lenovo m72e, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
 
 In this guide, you will be using  Debian 10.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
