@@ -114,4 +114,4 @@ Along with this guide, there is also associated documents available. These are e
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
-Thank you to contributors, [nickrout](https://community.home-assistant.io/u/nickrout/), [finity](https://community.home-assistant.io/u/finity) and [flamingm0e](https://community.home-assistant.io/u/flamingm0e)
+Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
