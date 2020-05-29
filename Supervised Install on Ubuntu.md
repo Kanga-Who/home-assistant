@@ -8,7 +8,7 @@ In this guide, you will be using Ubuntu Server 18.04.04 as the operating system.
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Ubuntu Server
 
@@ -32,7 +32,7 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 
 **1.9)** Next will be **Configure Ubuntu Archive Mirror**. Skip this screen by selecting DONE, we do not need to enter anything.
 
-**1.10)** Next will be **Installer Update**. We do necessarily need to update the installer, so select CONTINUE WITHOUT UPDATING.
+**1.10)** Next will be **Installer Update**. We do not necessarily need to update the installer, so select CONTINUE WITHOUT UPDATING.
 
 **1.11)** Next will be **Filesystem Setup**. Select USE AN ENTIRE DISK and then on the next screen select the disk you wish to use. Then on the next screen, select DONE and then CONTINUE.
 
@@ -81,8 +81,8 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
 ```
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
-- Install Samba, Portainer and MQTT on Ubuntu Server 18.04.04
-- Backing up and Restoring your configuration
+- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
+- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
