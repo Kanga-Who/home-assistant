@@ -14,7 +14,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 
 **1.1)** Start by downloading Ubuntu Server 18.04.04 from [HERE](https://ubuntu.com/download/alternative-downloads). This is a torrent file, so use your favourite torrent program.
 
-**1.2)** While Ubuntu is downloading, you will need some other programs to help with the setup and installation. To burn the Ubuntu ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://releases.ubuntu.com/20.04/). You will also use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). 
+**1.2)** While Ubuntu is downloading, you will need some other programs to help with the setup and installation. To burn the Ubuntu ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). You will also use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). 
 
 Putty is a free and open-source terminal emulator, serial console and network file transfer application. You will use Putty to execute commands on the Ubuntu machine from your Windows PC. (Use Terminal on a Mac).
 
