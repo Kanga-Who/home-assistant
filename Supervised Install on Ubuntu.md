@@ -1,12 +1,12 @@
 ## Installing Home Assistant Supervised on Ubuntu
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently[u] this installation method is not officially supported[/u] by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
 
-In this guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not have a keyboard, mouse or monitor attached. You will manage and update the machine via terminal commands.
+In this guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
 *What is Home Assistant Supervised?*
 
-Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
+Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
 If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
 
@@ -38,7 +38,7 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 
 **1.12)** Next will be **Profile Setup**. Enter your name, choose a name for your server (i.e. ubuntu-server) and enter a password. Make note of the username and password you choose here, this is what you will use to connect to the machine later.
 
-**1.13)** Next will be **SSH Setup**. You will press SPACEBAR to place and X in the box next to INSTALL OPEN SSH SERVER, then arrow down to DONE.
+**1.13)** Next will be **SSH Setup**. You will press SPACEBAR to place an X in the box next to INSTALL OPEN SSH SERVER, then arrow down to DONE.
 
 **1.14)** Next will be **Featured Server Snaps**. We do not need to select anything on this screen, arrow down to DONE. 
 
