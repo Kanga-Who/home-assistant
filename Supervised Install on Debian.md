@@ -67,7 +67,7 @@ sudo apt install openssh-server -y
 ip a
 ```
 
-You should now see some information on your screen showing network configuration. You are looking for information like inet `192.168.1.150/24`, or, `inet 10.1.1.50/24` depending on your network setup. This is the IP of the machine and you can now use this to connect to the machine from another PC.
+You should now see some information on your screen showing network configuration. You are looking for information like `inet 192.168.1.150/24`, or, `inet 10.1.1.50/24` depending on your network setup. This is the IP of the machine and you can now use this to connect to the machine from another PC.
 
 
 ## Section 2 – Install Home Assistant Supervised
