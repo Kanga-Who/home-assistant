@@ -1,6 +1,6 @@
 # Section 1 – Backing up your configuration
 
-In this section, you will learn how to save a snapshot and backup the configuration files and folders from your Home Assistant machine. To do this, you will use a program called WinSCP available HERE. Download and install WinSCP and then move on. If you are not using a version of Home Assistant with the Supervisor, skip step 1.1 and move on to 1.2.
+In this section, you will learn how to save a snapshot and backup the configuration files and folders from your Home Assistant machine. To do this, you will use a program called WinSCP available [HERE](https://winscp.net/eng/docs/guide_install). Download and install WinSCP and then move on. If you are not using a version of Home Assistant with the Supervisor, skip step 1.1 and move on to 1.2.
 
 **1.1)** Log in to your existing Home Assistant, navigate to the Supervisor section and click on the Snapshots tab. Enter a name for your snapshot, todays date is a good name, and click CREATE. This may take a few minutes, so be patient. When this process is finished, you will see your snapshot appear and you can click on it and download.
 
