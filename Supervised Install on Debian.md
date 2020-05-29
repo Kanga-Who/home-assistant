@@ -8,7 +8,7 @@ In this guide, you will be using  Debian 10.04 as the operating system. This typ
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Debian
 **1.1)** Start by downloading `debian-live-10.4.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
