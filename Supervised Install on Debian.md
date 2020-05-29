@@ -1,4 +1,4 @@
-## Installing Home Assistant Supervised on Debain
+## Installing Home Assistant Supervised on Debian
 
 This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
 
@@ -34,19 +34,25 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 
 **1.10)**	Next will be **Set up users and passwords**. You will be asked to create a password for the root user. Make a note of the password you choose here, and click continue.
 
-**1.11)**	Next will be **Set up users and passwords** again. On this page you will enter your name for your user account, then click continue. 
+**1.11)**	Next will be **Set up users and passwords** again. Enter a username, click continue and on the next screen, enter a password for this user account. Make note of both of these, you will need them later.
 
-**1.12)**	Next will be **Set up users and passwords** again. Enter a username, click continue and on the next screen, enter a password for this user account. Make note of both of these, you will need them later.
+**1.12)**	Next will be **Configure the clock**. Select the correct time zone and click continue.
 
-**1.13)**	Next will be **Configure the clock**. Select the correct time zone and click continue.
+**1.13)**	Next will be **Partition Disks**. Select **Guided - use entire disk** and then click continue. On the next screen make sure the correct disk is selected and click continue. On the next screen select **All files in one partition** and click continue. On the next screen, make sure **Finish partitioning and write changes to disk** is selected, and click continue. On the next screen, select **Yes** and then click continue. The installer will now perform some automated tasks. This will take 1-2 mins.
 
-**1.14)**	Next will be **Partition Disks**. Select **Guided - use entire disk** and then click continue. On the next screen make sure the correct disk is selected and click continue. On the next screen select **All files in one partition** and click continue. On the next screen, make sure **Finish partitioning and write changes to disk** is selected, and click continue. On the next screen, select **Yes** and then click continue. The installer will now perform some automated tasks. This will take 1-2 mins.
+**1.14)**	Next will be **Configure the package manager**. Select **No** and click continue. Select your Country and click continue. You can leave the default selection **deb.debian.org** selected and click continue. Leave the next page blank and click continue. The installer will now perform some automated tasks. This will take a few minutes.
 
-**1.15)**	Next will be **Configure the package manager**. Select **No** and click continue. Select your Country and click continue. You can leave the default selection **deb.debian.org** selected and click continue. Leave the next page blank and click continue. The installer will now perform some automated tasks. This will take a few minutes.
+**1.15)**	Next will be **Install the GRUB bootloader**. Select **Yes** and click continue. Now select the drive you are installing Debian on, and click continue. The installer will now perform some automated tasks. This will take 1-2 mins and then installation will be complete.
 
-**1.16)**	Next will be **Install the GRUB bootloader**. Select **Yes** and click continue. Now select the drive you are installing Debian on, and click continue. The installer will now perform some automated tasks. This will take 1-2 mins and then installation will be complete.
+**1.16)** On debian your user will not be a member of the sudo group so cannot run administrative commands. After the system has rebooted, log in as the root user and the pasword you set during **Step 1.10.** To add your user to the sudo group enter this command, and press Enter. 
 
-**1.17)**	After the system has rebooted, you will be able to login to the machine. Use the username and password you created in **Step 1.13**.
+```
+usermod -aG sudo username
+```
+
+where *username* is the one you setup during **Step 1.11**
+
+**1.17)**	Log out of the root account by pressing ctrl-d on your keyboard then to login to the machine using the username and password you created in **Step 1.11**.
 
 **1.18)**	Before you can connect to the machine via SSH from another PC, you will need to update the operating system and install the OpenSSH-Server. Enter these commands one at a time, and press enter.
 
