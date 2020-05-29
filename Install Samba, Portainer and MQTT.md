@@ -2,7 +2,7 @@ In this guide, you will learn how to install Samba for network file sharing, Por
 
 The advantage of installing these particular pieces of software outside of the Home Assistant Supervisor is that if you have an issue with Home Assistant not starting, you can still access your files via your network and access the Home Assistant Docker containers to get logs and help troubleshoot problems.
 
-# Section 1 – Install Portainer
+## Section 1 – Install Portainer
 
 **1.1)** Connect to your machine using Putty.
 
@@ -14,7 +14,7 @@ sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -
 
 **1.3)** Once installed, you will be able to access Portainer at `http://MACHINE_IP_ADDRESS:9000`. When you first log in, you will be presented with a screen that will ask you for a username, and password. Enter these, then click Create User. On the next screen, select Local and then Connect. You will now be able to click on the Containers tab on the side to view you installed containers.
 
-# Section 2 – Install Samba
+## Section 2 – Install Samba
 
 **2.1)** Connect to your machine using Putty.
 
@@ -76,7 +76,7 @@ sudo service smbd restart
 
 You will now be able to access you Home Assistant files from another machine on your network via Samba, making it easy to copy and paste your configuration to keep a backup.
 
-# Section 3 – Install an MQTT broker
+## Section 3 – Install an MQTT broker
 
 What is an MQTT broker? An MQTT broker is a server that receives messages from MQTT clients (switches, lights, sensors etc) and then routes the messages to the appropriate destination. An example of how MQTT is used in Home Assistant is HERE.
 
