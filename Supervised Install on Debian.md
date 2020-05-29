@@ -1,6 +1,6 @@
 ## Installing Home Assistant Supervised on Debain
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
 
 In this guide, you will be using  Debian 10.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
@@ -11,7 +11,6 @@ Home Assistant is a full UI managed home automation ecosystem that runs Home Ass
 If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant)
 
 ## Section 1 – Install Debian
-
 **1.1)** Start by downloading `debian-live-10.4.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). You will also use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). 
@@ -51,7 +50,7 @@ Putty is a free and open-source terminal emulator, serial console and network fi
 **1.18)**	Before you can connect to the machine via SSH from another PC, you will need to update the operating system and install the OpenSSH-Server. Enter these commands one at a time, and press enter.
 
 ```
-sudo apt update && sudo apt dist-upgrade –y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 
 sudo apt install openssh-server -y
 ```
@@ -72,10 +71,12 @@ Now that you have Debian installed, you can move on to installing Home Assistant
 **2.1)** First you will start by updating Debian to make sure all the latest updates and security patches are installed. To do this you will use Putty to connect via SSH and copy and paste some commands. To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19, and the username and password you created from Step 1.12.
 
 Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Debian machine, then select OPEN. You will now be prompted to enter your username (login as:) and password. Now that you have logged in, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
+
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
-Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When finished, you will see the prompt.
+
+Depending on the speed of your internet connection, this could take anywhere from 30 seconds to 20 minutes to complete. When finished, you will see the prompt.
 
 **2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER.
 ```
@@ -102,8 +103,8 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
 ```
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
-- Install Samba, Portainer and MQTT on Ubuntu or Debian
-- Backing up and Restoring your configuration
+- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
+- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
