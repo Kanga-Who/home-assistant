@@ -2,7 +2,7 @@
 
 This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. 
 
-:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS. This install method may cease to work at any time, so use at your own risk.
+:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS and no offical support will be offered. This install method may cease to work at any time, so use at your own risk.
 
 In this guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
@@ -58,7 +58,7 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
 Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When finished, you will see the prompt.
 
-**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER.
+**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER. One of the following commands will execute a shell script as root, and some people may be concerned with the security risk. If you would like to read the script for piece of mind, click HERE
 ```
 sudo -i
 
