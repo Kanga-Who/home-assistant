@@ -58,7 +58,7 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
 Depending on the speed of your internet connection, this could take anywhere from 2 to 20 minutes to complete. When finished, you will see the prompt.
 
-**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER. One of the following commands will execute a shell script as root, and some people may be concerned with the security risk. If you would like to read the script for piece of mind, click HERE
+**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER. One of the following commands will execute a shell script as root, and some people may be concerned with the security risk. If you would like to read the script for piece of mind, click [HERE](https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh)
 ```
 sudo -i
 
