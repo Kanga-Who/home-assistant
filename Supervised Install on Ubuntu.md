@@ -1,6 +1,8 @@
 ## Installing Home Assistant Supervised on Ubuntu
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS.
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on a number of machines including, Intel NUC J5005, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. 
+
+:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS. This install method may cease to work at any time, so use at your own risk.
 
 In this guide, you will be using Ubuntu Server 18.04.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
