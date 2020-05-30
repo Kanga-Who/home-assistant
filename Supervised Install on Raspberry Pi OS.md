@@ -2,7 +2,7 @@
 
 This guide will help you to install Home Assistant Supervised on a Raspberry Pi. This guide has been tested on a Raspberry Pi 3b+ and should also work for other Raspberry Pi's. 
 
-:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS, no offical support will be offered.
+:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS, no offical support will be offered. This install method may cease to work at any time, so use at your own risk.
 
 In this guide, you will be using Raspberry Pi OS (Formally named Raspbian) as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
