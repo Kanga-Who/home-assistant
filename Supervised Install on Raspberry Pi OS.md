@@ -1,6 +1,6 @@
 ## Installing Home Assistant Supervised on Raspberry Pi OS
 
-This guide will help you to install Home Assistant Supervised on a Raspberry Pi. This guide has been tested on a Raspberry Pi 3b+ and should also work for other Raspberry Pi's.
+This guide will help you to install Home Assistant Supervised on a Raspberry Pi. This guide has been tested on a Raspberry Pi 3b+ and should also work for other Raspberry Pi's. 
 
 :warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS, no offical support will be offered.
 
@@ -110,3 +110,5 @@ Along with this guide, there is also associated documents available. These are e
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
 Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
+
+:exclamation: This guide has also been tested using a USB SSD as the boot drive. Your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be wokring on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
