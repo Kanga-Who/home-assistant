@@ -65,7 +65,7 @@ hosts allow =
 **2.6)** You will now need to create a username and password to log into Samba.
 
 ```
-sudo smbpasswd –a USERNAME_OF_YOUR_CHOICE
+sudo smbpasswd -a USERNAME_OF_YOUR_CHOICE
 ```
 
 **2.7)** You will then be prompted to enter a password twice. Choose a password you can easily remember and make a note of it. Now you can restart the samba service and immediately access our files from another machine on our local network.
