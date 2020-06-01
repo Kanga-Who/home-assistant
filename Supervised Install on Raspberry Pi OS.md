@@ -100,7 +100,7 @@ Once you can see the login screen, the setup has been completed and you can set 
 That’s it, you have now installed Home Assistant Supervised your Raspberry Pi and have SSH access to your machine to keep it up to date. It is recommended that you log into the Pi using Putty at least once a month and use the following command to download security patches and keep the OS up to date.
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
@@ -111,4 +111,4 @@ I welcome feedback on this guide, please feel free to tag me or PM if you have s
 
 Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
 
-:exclamation: This guide has also been tested using a USB SSD as the boot drive. Your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be wokring on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
+:exclamation: This guide has also been tested using a USB SSD as the boot drive. Your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be working on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
