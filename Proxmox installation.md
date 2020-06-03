@@ -110,11 +110,11 @@ Once this has finished, you will see `[INFO] Completed Successfully! New VM ID i
 
 On the left hand side, you should see a new entry under **Datacentre --- Your_Machine_Name** called `100 (hassosova-4.8)` or similar. This is the Home Assistant VM created by the script. It is currently not running and you should now make some changes to how the VM will operate.
 
-**3.3)** Click on the VM named `100 (hassosova-4.8)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are Memory, Processors and Hard Disk. 
+**3.3)** Click on the VM named `100 (hassosova-4.8)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
 
-**3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be 512. Depending on how much Memory you have in your machine, you can increased this value to 2048 (2gb) or 4096 (4gb), and then click OK.
+**3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be `512`. Depending on how much Memory you have in your machine, you can increased this value to `2048` (2gb) or `4096` (4gb), and then click OK. Home Assistant happily runs with 2gb of memory. 
 
-**3.5)** Click on **Processors**, then click on **Edit** in the bar just above. The default values will be Sockets 1 and Cores 1. Leave sockets at 1. Depending on your CPU type (dual core, quad core, etc) change the value of Cores to 2, or 4, then click OK. You can also leave this value at 1.
+**3.5)** Click on **Processors**, then click on **Edit** in the bar just above. The default values will be Sockets 1 and Cores 1. Leave Sockets at 1. Depending on your CPU type (dual core, quad core, etc) change the value of Cores to 2, or 4, then click OK. You can also leave this value at 1 which will only use 1 CPU Core.
 
 **3.6)** Click on **Hard Disk**, then click on **Resize Disk** in the bar just above. The drive is already 6gb, so you can add a value to increase the size of the disk. A good value to use is 26 as this will make the drive size 32gb which is more than enough for Home Assistant. Enter a value, then click Resize Disk.
 
@@ -122,7 +122,7 @@ On the left hand side, you should see a new entry under **Datacentre --- Your_Ma
 
 **3.8)** You can now start the Home Assistant VM for the first time so it can run the install. To do this, click **Start** on the top right corner of the screen.
 
-***3.()** The Home Assistant VM will be assigned a different IP to Proxmox. To find the IP of the Home Assistant install, click on **Summary** from the menu list, and you should now see a box that shows information such as Status, HA State, CPU and Memory info. The IP listed here is the one needed to access Home Assistant. 
+**3.9)** The Home Assistant VM will be assigned a different IP to Proxmox. To find the IP of the Home Assistant install, click on **Summary** from the menu list, and you should now see a box that shows information such as Status, HA State, CPU and Memory info. The IP listed here is the one needed to access Home Assistant. 
 
 You can now enter this IP and port 8123 (eg. http://192.168.1.150:8123) in your web browser and check the status of the Home Assistant installation.
 
