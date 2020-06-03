@@ -111,4 +111,4 @@ I welcome feedback on this guide, please feel free to tag me or PM if you have s
 
 Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
 
-:exclamation: This guide has also been tested using a USB SSD as the boot drive. You can replace the SD card with and SSD+USB enclosure but your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be working on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
+:exclamation: This guide has also been tested using a USB SSD as the boot drive. You can replace the SD card with an SSD+USB enclosure but your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be working on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
