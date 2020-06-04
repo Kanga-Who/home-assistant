@@ -46,7 +46,7 @@ After 1-2 minutes, you should be able to access Proxmox at `https://MACHINE_IP:8
 
 ## Section 2 - Configure and Update Proxmox
 
-**2.1)** Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. To do this you will use Putty available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect via SSH and copy and paste some commands. To connect to the Proxmox via Putty, you will need the IP of the machine from Step 1.10, the username `root` and password you created from Step 1.8.
+**2.1)** Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. To do this you will use Putty available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect via SSH and copy and paste some commands. To connect to Proxmox via Putty, you will need the IP of the machine from Step 1.10, the username `root` and password you created from Step 1.8.
 
 Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Proxmox machine, then select OPEN. You will now be prompted to enter the username `root` (login as:) and your password. 
 
@@ -75,7 +75,7 @@ usermod -aG sudo YOUR_USER_NAME
 To test this has worked, log out of Putty by typing `exit` and press enter. Start a new Putty connection and use the new username and password you have just created.
 
 
-Now that you have logged in with the new user, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
+Now that you have logged in with the new user, you can update Proxmox with the following command.
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
