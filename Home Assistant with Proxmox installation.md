@@ -48,17 +48,43 @@ After 1-2 minutes, you should be able to access Proxmox at `https://MACHINE_IP:8
 
 **2.1)** Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. To do this you will use Putty available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect via SSH and copy and paste some commands. To connect to the Proxmox via Putty, you will need the IP of the machine from Step 1.10, the username `root` and password you created from Step 1.8.
 
-Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Proxmox machine, then select OPEN. You will now be prompted to enter the username `root` (login as:) and your password. Now that you have logged in, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
+Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Proxmox machine, then select OPEN. You will now be prompted to enter the username `root` (login as:) and your password. 
 
-`
-apt update && apt dist-upgrade -y && apt autoremove -y
-`
+**2.2)** The first thing you should do is add a user to the sudo group so you don't need to login with root. To do this, copy and paste this command into the Putty window to install sudo.
+```
+apt-get install sudo
+```
+Once this has completed, create a new user
+```
+adduser YOUR_USER_NAME
+```
+Choose and confirm a password, then complete the following.
+```
+Changing the user information for username
+Enter the new value, or press ENTER for the default
+    Full Name []: YOUR NAME
+    Room Number []: LEAVE BLANK
+    Work Phone []: LEAVE BLANK
+    Home Phone []: LEAVE BLANK
+    Other []: LEAVE BLANK
+```
+You can now add the user the sudo group with this command.
+```
+usermod -aG sudo YOUR_USER_NAME
+```
+To test this has worked, log out of Putty by typing `exit` and press enter. Start a new Putty connection and use the new username and password you have just created.
 
-You may get an error when running updates, if you see "401 unauthorized IP" you can solve it by following Step 2.2. If you don't get this error, move onto **Section 3 - Installing Home Assistant**.
 
-**2.2)** Copy and paste this command into Putty and press enter
-`nano /etc/apt/sources.list`
+Now that you have logged in with the new user, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
+```
+sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
+```
+You may get an error when running updates, if you see "401 unauthorized IP" you can solve it by following Step 2.3. If you don't get this error, move onto **Section 3 - Installing Home Assistant**.
 
+**2.3)** Copy and paste this command into Putty and press enter
+```
+sudo nano /etc/apt/sources.list
+```
 Press and hold Control button and K button together on your keyboard to remove all the text you can see (Control+K)
 
 When the screen is blank, copy and paste in the following information.
@@ -75,23 +101,18 @@ deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 deb http://security.debian.org/debian-security buster/updates main contrib
 #
 ```
+Then press `Control+X`, then `Y` for Yes, then press Enter.
 
-Then press Control+X and then Y for Yes, then press Enter
-
-Copy and paste this command into Putty and press enter
-
+Copy and paste this command into Putty and press enter.
 ```
-nano /etc/apt/sources.list.d/pve-enterprise.list
+sudo nano /etc/apt/sources.list.d/pve-enterprise.list
 ```
-
-Press and hold Control+K to remove all the text you can see, once all text is removed, press Control+X and then Y for Yes, then press Enter
+Press and hold `Control+K` to remove all the text you can see, once all text is removed, press `Control+X`, then `Y` for Yes, then press Enter.
 
 You can now run the following update command and should not get any errors. The update could take 1-20mins, when finished, you can move on.
-
-`
-apt update && apt dist-upgrade -y && apt autoremove --purge -y
-`
-
+```
+sudo apt update && apt dist-upgrade -y && apt autoremove --purge -y
+```
 Now that the OS is up to date, you can move onto to installing Home Assistant using Proxmox.
 
 ## Section 3 - Installing Home Assistant
@@ -101,7 +122,7 @@ Installing Home Assistant in Proxmox has been made very simple with an excellent
 **3.1)** To run the install script, copy and paste the following command into the Putty window you have open. This will download an official image from the Home Assistant website and configure it in Proxmox for you. This will take 2-20mins depending on your internet connection and machine.
 
 ```
-bash -c "$(wget -qLO - https://github.com/whiskerz007/proxmox_hassos_install/raw/master/install.sh)"
+sudo bash -c "$(wget -qLO - https://github.com/whiskerz007/proxmox_hassos_install/raw/master/install.sh)"
 ```
 
 Once this has finished, you will see `[INFO] Completed Successfully! New VM ID is 100`. When you can see this message in Putty, you can move over the Proxmox page to configure the VM.
