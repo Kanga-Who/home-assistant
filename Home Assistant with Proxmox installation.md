@@ -8,7 +8,7 @@ This installation uses an offical image provided by the Home Assistant team and 
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Proxmox
 
@@ -16,7 +16,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 
 **1.2)** You will now need to make a bootable USB drive using balenaEtcher, available [HERE](https://www.balena.io/etcher/). Use a USB drive of at least 8gb. Insert the blank USB drive into your PC, open Etcher, select the Proxmox image you have just downloaded, select your USB drive, then click Flash.
 
-**1.3)** Insert the USB you have just made into the new machine, connect a monitor, Ethernet cable, keyboard and mouse, and power on the machine. You will need to select the USB drive as the boot device, to do this, you will need to press something like F12 or DEL on your keyboard immediately when the machine is powered on. If you have any extra hardware, like a Zigbee or Z-Wave stick, now is also a good time to plug them in to the machine.
+**1.3)** Insert the USB you have just made into the new machine, connect a monitor, Ethernet cable, keyboard, mouse, and power on the machine. If you have any extra hardware, like a Zigbee or Z-Wave stick, now is also a good time to plug them in to the machine. You will need to select the USB drive as the boot device, to do this, you will need to press something like F12 or DEL on your keyboard immediately when the machine is powered on. 
 
 **1.4)** When you see the first screen, select **Install Proxmox VE**, press Enter. The installer will perform some automated tasks for 1-2 mins.
 
@@ -24,7 +24,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 
 **1.6)** Next on the **Proxmox Virtualization Environment (PVE)** screen, select the drive you wish to use from the box at the bottom of the screen, then click Next.
 
-**1.7)** Next on the **Location and Time Zone** selection, Type you country, then select your time zone and change the keyboard layout if needed, then click Next
+**1.7)** Next on the **Location and Time Zone** selection, Type your country, then select your time zone and change the keyboard layout if needed, then click Next
 
 **1.8)** Next on the **Administration password and E-mail address** screen, choose a password, confirm your password and enter a valid email address.
 
@@ -33,9 +33,9 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 - **Management interface** should already be populated with the Ethernet controller of your machine, if not, select the Ethernet controller
 - **Hostname (FQDN)** - Type a hostname in this box, you could use something like, `proxmox.ddns`, `hass.info`, or `homeassistant.ddns`.
 - **IP Address** - you can choose an IP for your machine, if you have a specific IP you wish to use on your network, enter this now
-- **Netmask** - should auto populate and be something like 255.255.255.0 depending on your network configuration.
+- **Netmask** - should auto populate and be something like `255.255.255.0` depending on your network configuration.
 - **Gateway** - this is (normally) the IP of your router, this should auto populate with the correct info, if it does not, enter the IP of your router
-- **DNS server** - you can leave this at the default on your network (normally the same IP as your router), or input one of your choosing like a Google DNS server 8.8.8.8 or a Cloudfare DNS server like 1.1.1.1.
+- **DNS server** - you can leave this at the default on your network (normally the same IP as your router), or input one of your choosing like a Google DNS server` 8.8.8.8 or` a Cloudfare DNS server like `1.1.1.1`.
 
 **1.10)** Next on the **Summary** screen, confirm all the details are correct, then click Install. This process can take anywhere from 2 -20min depending on your machine.
 
@@ -133,7 +133,7 @@ On the left hand side, you should see a new entry under **Datacentre --- Your_Ma
 
 **3.3)** Click on the VM named `100 (hassosova-4.8)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
 
-**3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be `512`. Depending on how much Memory you have in your machine, you can increased this value to `2048` (2gb) or `4096` (4gb), and then click OK. Home Assistant happily runs with 2gb of memory. 
+**3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be `512`. Depending on how much Memory you have in your machine, you can increase this value to `2048` (2gb) or `4096` (4gb), and then click OK. Home Assistant happily runs with 2gb of memory. 
 
 **3.5)** Click on **Processors**, then click on **Edit** in the bar just above. The default values will be Sockets 1 and Cores 1. Leave Sockets at 1. Depending on your CPU type (dual core, quad core, etc) change the value of Cores to 2, or 4, then click OK. You can also leave this value at 1 which will only use 1 CPU Core.
 
@@ -157,9 +157,7 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
 
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
-- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
-- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
+- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Backup%20and%20restore%20your%20config.md)
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
-
-Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
