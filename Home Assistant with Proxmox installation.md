@@ -52,7 +52,8 @@ Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Proxmox
 
 **2.2)** The first thing you should do is add a user to the sudo group so you don't need to login with root. To do this, copy and paste this command into the Putty window to install sudo.
 ```
-apt-get install sudo
+apt update
+apt install sudo
 ```
 Once this has completed, create a new user
 ```
