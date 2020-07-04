@@ -28,7 +28,7 @@ command -v apparmor_parser > /dev/null 2>&1 || warn "No AppArmor support on host
 
 
 # Check if Modem Manager is enabled
-if systemctl list-unit-files ModemManager.service | grep enabled; then
+if systemctl is-enabled ModemManager.service | grep enabled; then
     warn "ModemManager service is enabled. This might cause issue when using serial devices."
 fi
 
