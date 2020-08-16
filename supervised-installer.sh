@@ -5,10 +5,17 @@ function error { echo -e "[Error] $*"; exit 1; }
 function warn  { echo -e "[Warning] $*"; }
 
 warn ""
+warn ""
+warn ""
 warn "This script is taken from the official"
+warn ""
 warn "Home Assistant Supervised script available at"
+warn ""
 warn "https://github.com/home-assistant/supervised-installer"
 warn ""
+warn ""
+warn ""
+
 
 ARCH=$(uname -m)
 DOCKER_BINARY=/usr/bin/docker
