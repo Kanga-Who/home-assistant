@@ -13,6 +13,9 @@ Home Assistant is a full UI managed home automation ecosystem that runs Home Ass
 If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Debian
+<details>
+  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand!</summary>
+
 **1.1)** Start by downloading `debian-live-10.4.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). 
@@ -67,7 +70,7 @@ ip a
 ```
 
 You should now see some information on your screen showing network configuration. You are looking for information like `inet 192.168.1.150/24`, or, `inet 10.1.1.50/24` depending on your network setup. This is the IP of the machine and you can now use this to connect to the machine from another PC.
-
+</details>
 
 ## Section 2 – Install Home Assistant Supervised
 
