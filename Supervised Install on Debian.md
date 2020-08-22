@@ -15,7 +15,8 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
 ## Section 1 – Install Debian
 
 <details>
-  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand for instrutions</summary>
+  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand for instructions</summary>
+
 
 **1.1)** Start by downloading `debian-live-10.5.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
 
@@ -61,7 +62,6 @@ where *username* is the one you setup during **Step 1.11**
 
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
-
 ```
 
 **1.19)**	Once this has completed, you will need to find the IP address of the machine. You can do this by checking your router, or by typing this command into the terminal.
@@ -77,9 +77,7 @@ You should now see some information on your screen showing network configuration
 
 With Debian installed, you can move on to installing Home Assistant Supervised.
 
-**2.1)** First you will start by updating the Debian OS to make sure all the latest updates and security patches are installed. To do this you can use Putty to connect via SSH and copy and paste some commands. To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19 (you cna also locate the IP in your router), and the username and password you created from during the inital setup (Step 1.12).
-
-Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Debian machine, then select OPEN. You will now be prompted to enter your username (login as:) and password. Now that you have logged in, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
+**2.1)** First you will start by updating the Debian OS to make sure all the latest updates and security patches are installed. To do this, log into the terminal of your machine, enter the following command and press enter.
 
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
@@ -87,7 +85,8 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 
 Depending on the speed of your internet connection, this could take anywhere from 30 seconds to 20 minutes to complete. When finished, you will see the prompt.
 
-**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Copy each line of the below commands one at a time and paste them into the Putty window, and press ENTER. One of the following commands will execute a shell script as root, and some people may be concerned with the security risk. If you would like to read the script for piece of mind, click [HERE](https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh)
+**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Enter each line of the below commands into the terminal and execute them one at a time.
+
 ```
 sudo -i
 
