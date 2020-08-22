@@ -4,19 +4,20 @@ This guide will help you to install Home Assistant Supervised, on almost any mac
 
 :warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS. This install method may cease to work at any time, so use at your own risk.
 
-In this guide, you will be using  Debian 10.04 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
+In this guide, you will be using  Debian 10 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands using the official Home Assistant Terminal and SSH add-on.
 
 *What is Home Assistant Supervised?*
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+If you are new to Home Assistant, you can now proceed to Section 1 if you need assistance with installing Debian 10. If you already have Debian 10 installed and wish to move on to installing Home Assistant, move on to Section 2. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Debian
-<details>
-  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand!</summary>
 
-**1.1)** Start by downloading `debian-live-10.4.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
+<details>
+  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand for instrutions</summary>
+
+**1.1)** Start by downloading `debian-live-10.5.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). 
 
@@ -46,7 +47,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 
 **1.15)**	Next will be **Install the GRUB bootloader**. Select **Yes** and click continue. Now select the drive you are installing Debian on, and click continue. The installer will now perform some automated tasks. This will take 1-2 mins and then installation will be complete.
 
-**1.16)** On Debian your user will not be a member of the sudo group so cannot run administrative commands. After the system has rebooted, log in as the root user and the password you set during **Step 1.10.** To add your user to the sudo group enter this command, and press Enter. 
+**1.16)** In Debian, your user will not be a member of the sudo group so cannot run administrative commands. After the system has rebooted, log in as the root user and the password you set during **Step 1.10.** To add your user to the sudo group enter this command, and press Enter. 
 
 ```
 usermod -aG sudo username
@@ -74,9 +75,9 @@ You should now see some information on your screen showing network configuration
 
 ## Section 2 – Install Home Assistant Supervised
 
-Now that you have Debian installed, you can move on to installing Home Assistant Supervised.
+With Debian installed, you can move on to installing Home Assistant Supervised.
 
-**2.1)** First you will start by updating Debian to make sure all the latest updates and security patches are installed. To do this you will use Putty to connect via SSH and copy and paste some commands. To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19, and the username and password you created from Step 1.12.
+**2.1)** First you will start by updating the Debian OS to make sure all the latest updates and security patches are installed. To do this you can use Putty to connect via SSH and copy and paste some commands. To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19 (you cna also locate the IP in your router), and the username and password you created from during the inital setup (Step 1.12).
 
 Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of the Debian machine, then select OPEN. You will now be prompted to enter your username (login as:) and password. Now that you have logged in, copy the following command and paste into Putty window by right clicking your mouse button. You may be asked to re-enter your password.
 
@@ -101,7 +102,7 @@ curl -fsSL get.docker.com | sh
 curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s
 ```
 
-**2.3)** On a PC or NUC the installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
+**2.3)** The installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
 
 Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document *Backing up and Restoring your configuration.*
 
@@ -109,22 +110,13 @@ That’s it, you have now installed Home Assistant Supervised on your Debian mac
 ```
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
 ```
+
+To do this, you can use use the official **Terminal and SSH** add-on available in the add-ons store of the Supervisor panel in Home Assistant.
+
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
 - [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
 - [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
-
-If you wish to install OpenSSH Server so you can remotely connect to the machine to run updates, you can install it using the follow command. 
-
-:warning: Please keep in mind, by installing OpenSSH you will make your installation unsupported according to the guidelines in ADR14 available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md). Installing OpenSSH will not break your machine, or your Home Assistant installation, but it is not listed as an approved application that can be installed if you wish to have an officially supported Home Assistant installation.
-:warning:
-
-```
-sudo apt install openssh-server -y
-```
-
-You can now use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect to your machine from another PC. Putty is a free and open-source terminal emulator, serial console and network file transfer application. 
-
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
