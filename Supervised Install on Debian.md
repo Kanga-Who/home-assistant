@@ -2,9 +2,11 @@
 
 This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including a Lenovo m72e, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. 
 
-:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS. This install method may cease to work at any time, so use at your own risk.
+:warning: Using Debian 10 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you a supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
 
-In this guide, you will be using  Debian 10 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands using the official Home Assistant Terminal and SSH add-on.
+While every effort has been made to ensure this guide complies with ADR-14, no guarantee can be made it does now, or in the future.
+
+In this guide, you will be using Debian 10 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer).
 
 *What is Home Assistant Supervised?*
 
@@ -18,7 +20,7 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
   <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand for instructions</summary>
 
 
-**1.1)** Start by downloading `debian-live-10.5.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program.
+**1.1)** Start by downloading `debian-live-10.5.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program. If you would prefer to download an ISO, you can find the `debian-live-10.5.0-amd64-standard.iso` ISO file [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/).
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). 
 
@@ -61,7 +63,7 @@ where *username* is the one you setup during **Step 1.11**
 **1.18)**	Before you start installing Home Assistant Supervised, you will need to update the operating system. Enter this command, and press enter.
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
 **1.19)**	Once this has completed, you will need to find the IP address of the machine. You can do this by checking your router, or by typing this command into the terminal.
@@ -80,7 +82,7 @@ With Debian installed, you can move on to installing Home Assistant Supervised.
 **2.1)** First you will start by updating the Debian OS to make sure all the latest updates and security patches are installed. To do this, log into the terminal of your machine, enter the following command and press enter.
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
 Depending on the speed of your internet connection, this could take anywhere from 30 seconds to 20 minutes to complete. When finished, you will see the prompt.
@@ -105,14 +107,22 @@ curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supe
 
 Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document *Backing up and Restoring your configuration.*
 
-That’s it, you have now installed Home Assistant Supervised on your Debian machine. It is recommended that you log into your machine at least once a month and use the following command to download security patches and keep the OS up to date.
+You have completed the installation of Home Assistant Supervised on your Debian machine. It is recommended that you log into your machine at least once a month and use the following command to download security patches and keep the OS up to date.
+
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove –y
 ```
 
-To do this, you can use use the official **Terminal and SSH** add-on available in the add-ons store of the Supervisor panel in Home Assistant.
+You can do this directly on the machine itself, or, if you wish to install Open-SSH so you can remotely connect to your Home Assistant machine from another PC, run the following from console. 
 
-Along with this guide, there is also associated documents available. These are essentially guides I use myself.
+```
+sudo apt install openssh-server -y
+```
+
+:warning: If you install Open-SSH you will not be adhering to the guidelines of ADR-14 and therefore will not have an officially supported installation. Installing Open-SSH will not break your machine.
+
+
+Along with this guide, there is also associated documents available. These are essentially guides I use myself and do not comply with ADR-14.
 
 - [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
 - [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
