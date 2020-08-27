@@ -119,8 +119,9 @@ You can do this directly on the machine itself, or, if you wish to install Open-
 sudo apt install openssh-server -y
 ```
 
-:warning: If you install Open-SSH you will not be adhering to the guidelines of ADR-14 and therefore will not have an officially supported installation. Installing Open-SSH will not break your machine.
+:warning: If you install Open-SSH you will not be adhering to the guidelines of [ADR-14](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) and therefore will not have an officially supported installation, however, installing Open-SSH will not break your machine. If you do choose to install and use Open-SSH, you can then use software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
+Putty is a free and open-source terminal emulator, serial console and network file transfer application. You can use Putty to execute commands on the Debian machine from your Windows PC. (Use Terminal on a Mac). To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19, and the username and password you created from Step 1.10.
 
 Along with this guide, there is also associated documents available. These are essentially guides I use myself and do not comply with ADR-14.
 
