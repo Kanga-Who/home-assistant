@@ -90,7 +90,7 @@ Depending on the speed of your internet connection, this could take anywhere fro
 ```
 sudo -i
 
-apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager
 
 systemctl disable ModemManager
 
