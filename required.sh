@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -e
-
 systemctl disable ModemManager.service
 systemctl stop ModemManager.service
+
+set -e
 
 function info { echo -e "[Info] $*"; }
 function error { echo -e "[Error] $*"; exit 1; }
