@@ -1,11 +1,11 @@
 #!/bin/bash
 
-service ModemManager status | grep 'active (running)' > /dev/null 2>&1
+systemctl ModemManager status | grep 'active (running)' > /dev/null 2>&1
 
 if [ $? != 0 ]
 then
-        sudo service ModemManager disable > /dev/null
-	sudo service ModemManager stop > /dev/null
+        sudo systemctl ModemManager disable > /dev/null
+	sudo systemctl ModemManager stop > /dev/null
 fi
 
 set -e
