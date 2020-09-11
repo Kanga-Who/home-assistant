@@ -27,3 +27,8 @@ EOF
 )
 
 fi
+
+#install Docker-ce
+curl -fsSL get.docker.com | sh
+
+fi
