@@ -22,15 +22,7 @@ info ""
 info ""
 
 while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
-	software-properties-common
-	apparmor-utils 
-	apt-transport-https 
-	avahi-daemon 
-	ca-certificates 
-	curl 
-	dbus 
-	jq 
-	network-manager
+	software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager
 EOF
 )
 
