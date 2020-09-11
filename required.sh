@@ -2,8 +2,8 @@
 
 set -e
 
-systemctl disable ModemManager
-systemctl stop ModemManager
+systemctl disable ModemManager.service
+systemctl stop ModemManager.service
 
 function info { echo -e "[Info] $*"; }
 function error { echo -e "[Error] $*"; exit 1; }
