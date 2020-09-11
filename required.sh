@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cat systemctl disable ModemManager.service
-cat systemctl stop ModemManager.service
+do systemctl disable ModemManager.service
+do systemctl stop ModemManager.service
 
 echo "manual" > /etc/init/modemmanager.override
 
