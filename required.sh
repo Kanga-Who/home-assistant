@@ -4,8 +4,8 @@ service ModemManager status | grep 'active (running)' > /dev/null 2>&1
 
 if [ $? != 0 ]
 then
-        sudo service mysql disable > /dev/null
-	sudo service mysql stop > /dev/null
+        sudo service ModemManager disable > /dev/null
+	sudo service ModemManager stop > /dev/null
 fi
 
 set -e
