@@ -3,8 +3,7 @@
 #systemctl disable ModemManager.service
 #systemctl stop ModemManager.service
 
-systemctl stop ModemManager.service
-echo manual | sudo tee -a /etc/init/modemmanager.override
+echo "manual" > /etc/init/modemmanager.override
 
 set -e
 
@@ -29,9 +28,7 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
 EOF
 )
 
-fi
-
 #install Docker-ce
 curl -fsSL get.docker.com | sh
 
-fi
+info "You can now move on to the next script"
