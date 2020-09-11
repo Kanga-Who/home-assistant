@@ -1,9 +1,12 @@
 #!/bin/bash
 
-do systemctl disable ModemManager.service
-do systemctl stop ModemManager.service
+service ModemManager status | grep 'active (running)' > /dev/null 2>&1
 
-echo "manual" > /etc/init/modemmanager.override
+if [ $? != 0 ]
+then
+        sudo service mysql disable > /dev/null
+	sudo service mysql stop > /dev/null
+fi
 
 set -e
 
