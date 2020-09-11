@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 systemctl status ModemManager | grep 'active (running)' > /dev/null 2>&1
 
 if [ $? != 0 ]
 then
         systemctl disable ModemManager > /dev/null
-	systemctl stop ModemManager > /dev/null
+        systemctl stop ModemManager > /dev/null
 fi
 
 set -e
@@ -14,11 +14,12 @@ function info { echo -e "[Info] $*"; }
 function error { echo -e "[Error] $*"; exit 1; }
 function warn  { echo -e "[Warning] $*"; }
 
+# Install required dependencies
 test $? -eq 0 || exit 1 "you should have sudo priveledge to run this script"
 
 info ""
 info ""
-info "Installing the must-have pre-requisites"
+info "Installing Home Assistant dependencies"
 info ""
 info ""
 
@@ -35,15 +36,16 @@ while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
 EOF
 )
 
+# Install Docker-ce
 info ""
 info ""
 info "Installing Docker-ce"
 info ""
 info ""
 
-#install Docker-ce
 curl -fsSL get.docker.com | sh
 
+# Install Home Assistant Supervised
 info ""
 info ""
 info "Now installing Home Assistant Supervised"
@@ -93,10 +95,10 @@ EOF
   info "Restarting docker service"
   systemctl restart "$DOCKER_SERVICE"
 else
-  STORRAGE_DRIVER=$(docker info -f "{{json .}}" | jq -r -e .Driver)
+  STORAGE_DRIVER=$(docker info -f "{{json .}}" | jq -r -e .Driver)
   LOGGING_DRIVER=$(docker info -f "{{json .}}" | jq -r -e .LoggingDriver)
-  if [[ "$STORRAGE_DRIVER" != "overlay2" ]]; then 
-    warn "Docker is using $STORRAGE_DRIVER and not 'overlay2' as the storrage driver, this is not supported."
+  if [[ "$STORAGE_DRIVER" != "overlay2" ]]; then 
+    warn "Docker is using $STORAGE_DRIVER and not 'overlay2' as the storage driver, this is not supported."
   fi
   if [[ "$LOGGING_DRIVER"  != "journald" ]]; then 
     warn "Docker is using $LOGGING_DRIVER and not 'journald' as the logging driver, this is not supported."
@@ -176,7 +178,7 @@ case $ARCH in
     ;;
 esac
 
-if [[ ! "intel-nuc odroid-c2 odroid-n2 odroid-xu qemuarm qemuarm-64 qemux86 qemux86-64 raspberrypi raspberrypi2 raspberrypi3 raspberrypi4 raspberrypi3-64 raspberrypi4-64 tinker" = *"${MACHINE}"* ]]; then
+if [[ ! "${MACHINE}" =~ ^(intel-nuc|odroid-c2|odroid-n2|odroid-xu|qemuarm|qemuarm-64|qemux86|qemux86-64|raspberrypi|raspberrypi2|raspberrypi3|raspberrypi4|raspberrypi3-64|raspberrypi4-64|tinker)$ ]]; then
     error "Unknown machine type ${MACHINE}!"
 fi
 
