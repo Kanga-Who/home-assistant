@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-systemctl status ModemManager | grep 'active (running)' > /dev/null 2>&1
-
-if [ $? != 0 ]
-then
-        systemctl disable ModemManager > /dev/null
-        systemctl stop ModemManager > /dev/null
-fi
-
 set -e
+
+if systemctl list-unit-files ModemManager.service | grep enabled; then
+
+	sudo systemctl disable ModemManager > /dev/null
+        sudo systemctl stop ModemManager > /dev/null
+fi
 
 function info { echo -e "[Info] $*"; }
 function error { echo -e "[Error] $*"; exit 1; }
