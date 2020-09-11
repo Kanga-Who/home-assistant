@@ -4,8 +4,8 @@ set -e
 
 if systemctl list-unit-files ModemManager.service | grep enabled; then
 
-	sudo systemctl disable ModemManager > /dev/null
-        sudo systemctl stop ModemManager > /dev/null
+	systemctl disable ModemManager > /dev/null
+        systemctl stop ModemManager > /dev/null
 fi
 
 function info { echo -e "[Info] $*"; }
@@ -35,11 +35,6 @@ EOF
 )
 
 # Install Docker-ce
-info ""
-info ""
-info "Installing Docker-ce"
-info ""
-info ""
 
 curl -fsSL get.docker.com | sh
 
