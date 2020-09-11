@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-    if command_exists docker && [ -e /var/run/docker.sock ]; then
+    if command_exists docker
+        then
             echo "Docker-CE is already installed"
             
         else
