@@ -1,4 +1,4 @@
-    echo "Docker-ce"
+    echo "docker-ce"
     read name
 
     dpkg -s $name &> /dev/null  
