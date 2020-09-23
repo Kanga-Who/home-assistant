@@ -9,7 +9,7 @@ The advantage of installing these particular pieces of software outside of the H
 **1.2)** Copy and paste this command into the Putty window and execute. You can paste into Putty by right clicking your mouse.
 
 ```
-sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 ```
 
 **1.3)** Once installed, you will be able to access Portainer at `http://MACHINE_IP_ADDRESS:9000`. When you first log in, you will be presented with a screen that will ask you for a username, and password. Enter these, then click Create User. On the next screen, select Local and then Connect. You will now be able to click on the Containers tab on the side to view you installed containers.
