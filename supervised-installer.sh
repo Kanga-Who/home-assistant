@@ -8,15 +8,11 @@ function error { echo -e "[Error] $*"; exit 1; }
 function warn  { echo -e "[Warning] $*"; }
 
 info ""
-info ""
-info ""
 info "This script is taken from the official"
 info ""
 info "Home Assistant Supervised script available at"
 info ""
 info "https://github.com/home-assistant/supervised-installer"
-info ""
-info ""
 info ""
 
 sleep 10
