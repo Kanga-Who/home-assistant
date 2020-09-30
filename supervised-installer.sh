@@ -3,9 +3,9 @@ set -e
 
 declare -a MISSING_PACAKGES
 
-function info { echo -e "[Info] $*"; }
-function error { echo -e "[Error] $*"; exit 1; }
-function warn  { echo -e "[Warning] $*"; }
+function info { echo -e "\e[32m[info] $*\e[39m"; }
+function warn  { echo -e "\e[33m[warn] $*\e[39m"; }
+function error { echo -e "\e[31m[error] $*\e[39m"; exit 1; }
 
 info ""
 info "This script is taken from the official"
