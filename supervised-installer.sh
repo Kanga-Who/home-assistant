@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-declare -a MISSING_PACAKGES
+declare -a MISSING_PACKAGES
 
 function info { echo -e "\e[32m[info] $*\e[39m"; }
 function warn  { echo -e "\e[33m[warn] $*\e[39m"; }
