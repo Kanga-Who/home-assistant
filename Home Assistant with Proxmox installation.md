@@ -105,7 +105,7 @@ Press and hold `Control+K` to remove all the text you can see, once all text is 
 
 You can now run the following update command and should not get any errors. The update could take 1-20mins, when finished, you can move on.
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt install qemu-guest-agent && sudo apt autoremove --purge -y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove --purge -y
 ```
 Now that the OS is up to date, you can move onto to installing Home Assistant using Proxmox.
 
@@ -135,7 +135,7 @@ On the left hand side, you should see a new entry under **Datacentre --- Your_Ma
 
 **3.7)** If you have a Zigbee or Z-wave stick connected to the machine that you wish to use with Home Assistant, you can configure these now by clicking on **USB Device** then click on **Edit** in the bar just above. You can now choose the USB Zigbee or Z-wave device from the dropdown list, then click OK. 
 
-**3.8)** Now move to **Options** tab in the list, 2 places below your current position of **Hardware**. Now double click on **Boot Order** and select your internal drive (SSD or HDD), such as 'sata0' from the list and make sure the check box next to it is checked/enabled and it is in position 1 (first boot deive), then click OK.
+**3.8)** Now move to **Options** tab in the list, 2 places below your current position of **Hardware**. Now double click on **Boot Order** and select your internal drive (SSD or HDD), such as 'sata0' from the list and make sure the check box next to it is checked/enabled and it is in position 1 (first boot device), then click OK.
 
 You can now start the Home Assistant VM for the first time so it can run the install. To do this, click **Start** on the top right corner of the screen.
 
