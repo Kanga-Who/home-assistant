@@ -31,7 +31,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 **1.9)** Next on the **Management network configuration** screen.
 
 - **Management interface** should already be populated with the Ethernet controller of your machine, if not, select the Ethernet controller
-- **Hostname (FQDN)** - Type a hostname in this box, you could use something like, `proxmox.ddns`, `hass.info`, or `homeassistant.ddns`.
+- **Hostname (FQDN)** - Type a hostname in this box, you could use something like, `proxmox.local`, `hass.info`, or `haserver.ddns`.
 - **IP Address** - you can choose an IP for your machine, if you have a specific IP you wish to use on your network, enter this now
 - **Netmask** - should auto populate and be something like `255.255.255.0` depending on your network configuration.
 - **Gateway** - this is (normally) the IP of your router, this should auto populate with the correct info, if it does not, enter the IP of your router
@@ -73,14 +73,7 @@ You can now add the user the sudo group with this command.
 ```
 usermod -aG sudo YOUR_USER_NAME
 ```
-To test this has worked, log out of Putty by typing `exit` and press enter. Start a new Putty connection and use the new username and password you have just created.
-
-
-Now that you have logged in with the new user, you can update Proxmox with the following command.
-```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
-```
-You may get an error when running updates, if you see "401 unauthorized IP" you can solve it by following Step 2.3. If you don't get this error, move onto **Section 3 - Installing Home Assistant**.
+To test this has worked, log out of Putty by typing `exit` and press enter. Start a new Putty connection and use the new username and password you have just created. Now that you have logged in with the new user, you will update Proxmox before installing Home Assistant. Firstly, you will need to edit the apt sources so you get the correct updates.
 
 **2.3)** Copy and paste this command into Putty and press enter
 ```
@@ -112,7 +105,7 @@ Press and hold `Control+K` to remove all the text you can see, once all text is 
 
 You can now run the following update command and should not get any errors. The update could take 1-20mins, when finished, you can move on.
 ```
-sudo apt update && apt dist-upgrade -y && apt autoremove --purge -y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt install qemu-guest-agent && sudo apt autoremove --purge -y
 ```
 Now that the OS is up to date, you can move onto to installing Home Assistant using Proxmox.
 
@@ -130,9 +123,9 @@ Once this has finished, you will see `[INFO] Completed Successfully! New VM ID i
 
 **3.2)** In your web browser, head to the Proxmox web interface at `https://MACHINE_IP:8006` and login using the username `root` and the password you created during Step 1.8. You will get a message saying "You do not have a valid subscription for this server.", you can safely ignore this and click OK.
 
-On the left hand side, you should see a new entry under **Datacentre --- Your_Machine_Name** called `100 (hassosova-4.8)` or similar. This is the Home Assistant VM created by the script. It is currently not running and you should now make some changes to how the VM will operate.
+On the left hand side, you should see a new entry under **Datacentre --- Your_Machine_Name** called `100 (hassosova-4.15)` or similar. This is the Home Assistant VM created by the script. It is currently not running and you should now make some changes to how the VM will operate.
 
-**3.3)** Click on the VM named `100 (hassosova-4.8)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
+**3.3)** Click on the VM named `100 (hassosova-4.15)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
 
 **3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be `512`. Depending on how much Memory you have in your machine, you can increase this value to `2048` (2gb) or `4096` (4gb), and then click OK. Home Assistant happily runs with 2gb of memory. 
 
@@ -142,7 +135,9 @@ On the left hand side, you should see a new entry under **Datacentre --- Your_Ma
 
 **3.7)** If you have a Zigbee or Z-wave stick connected to the machine that you wish to use with Home Assistant, you can configure these now by clicking on **USB Device** then click on **Edit** in the bar just above. You can now choose the USB Zigbee or Z-wave device from the dropdown list, then click OK. 
 
-**3.8)** You can now start the Home Assistant VM for the first time so it can run the install. To do this, click **Start** on the top right corner of the screen.
+**3.8)** Now move to **Options** tab in the list, 2 places below your current position of **Hardware**. Now double click on **Boot Order** and select your internal drive (SSD or HDD), such as 'sata0' from the list and make sure the check box next to it is checked/enabled and it is in position 1 (first boot deive), then click OK.
+
+You can now start the Home Assistant VM for the first time so it can run the install. To do this, click **Start** on the top right corner of the screen.
 
 **3.9)** The Home Assistant VM will be assigned a different IP to Proxmox. To find the IP of the Home Assistant install, click on **Summary** from the menu list, and you should now see a box that shows information such as Status, HA State, CPU and Memory info. The IP listed here is the one needed to access Home Assistant. 
 
