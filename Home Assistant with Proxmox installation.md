@@ -105,7 +105,7 @@ Press and hold `Control+K` to remove all the text you can see, once all text is 
 
 You can now run the following update command and should not get any errors. The update could take 1-20mins, when finished, you can move on.
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove --purge -y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt install qemu-guest-agent && sudo apt autoremove --purge -y
 ```
 Now that the OS is up to date, you can move onto to installing Home Assistant using Proxmox.
 
