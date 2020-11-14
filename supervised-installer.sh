@@ -53,7 +53,6 @@ command -v apparmor_parser > /dev/null 2>&1 || MISSING_PACKAGES+=("apparmor")
 command -v docker > /dev/null 2>&1 || MISSING_PACKAGES+=("docker")
 command -v jq > /dev/null 2>&1 || MISSING_PACKAGES+=("jq")
 command -v curl > /dev/null 2>&1 || MISSING_PACKAGES+=("curl")
-command -v avahi-daemon > /dev/null 2>&1 || MISSING_PACKAGES+=("avahi-daemon")
 command -v dbus-daemon > /dev/null 2>&1 || MISSING_PACKAGES+=("dbus")
 
 
@@ -106,7 +105,7 @@ warn "Changes are needed to the /etc/network/interfaces file"
 info "If you have modified the network on the host manualy, those can now be overwritten"
 info "If you do not overwrite this now you need to manually adjust it later"
 info "Do you want to proceed with that? [N/y] "
-read answer
+read answer < /dev/tty
 
 if [[ "$answer" =~ "y" ]] || [[ "$answer" =~ "Y" ]]; then
     info "Replacing /etc/network/interfaces"
