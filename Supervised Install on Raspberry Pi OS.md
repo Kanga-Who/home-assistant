@@ -1,16 +1,16 @@
 ## Installing Home Assistant Supervised on Raspberry Pi OS
 
-This guide will help you to install Home Assistant Supervised on a Raspberry Pi. This guide has been tested on a Raspberry Pi 3b+ and should also work for other Raspberry Pi's. 
+This guide will help you to install Home Assistant Supervised on a Raspberry Pi. This guide has been tested on a Raspberry Pi 3b+ and Raspberry Pi 4 4gb, and should also work for other Raspberry Pi's. 
 
-:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS, no offical support will be offered. This install method may cease to work at any time, so use at your own risk.
+:warning: Please keep in mind that currently **this installation method is not officially supported** by the Home Assistant team, and therefore you are responsible for updating and managing updates and security on the base OS, no official support will be offered. This install method may cease to work at any time, so use at your own risk. If you would like to run an officially supported Supervised install on you Pi, please see [this guide](https://community.home-assistant.io/t/installing-home-assistant-supervised-on-a-raspberry-pi-with-debian-10/247116) using Debian 10 as the OS.
 
-In this guide, you will be using Raspberry Pi OS (Formally named Raspbian) as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
+In this guide, you will be using Raspberry Pi OS (formally named Raspbian) as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer). You will manage and update the machine via terminal commands.
 
 *What is Home Assistant Supervised?*
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Backup%20and%20restore%20your%20config.md)
 
 ## Section 1 – Install Raspberry Pi OS
 
@@ -63,7 +63,7 @@ sudo raspi-config
 **1.11)** Next you will now update your Pi to ensure it has the latest OS and security updates that are available. You will need to reconnect via SSH using Putty as you did earlier, and log in using the username **pi** and the new password you created in Step 1.8. Once logged in, copy and paste this command and press Enter.
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
 Depending on your network connection, this could take anywhere from 1 to 20 minutes, so be patient. When it has completed, you can reboot the Pi using this command.
@@ -80,7 +80,7 @@ Now that you have Raspberry Pi OS installed, you can move on to installing Home 
 ```
 sudo -i
 
-apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+apt-get install -y software-properties-common apparmor-utils apt-transport-https ca-certificates curl dbus jq network-manager
 
 systemctl disable ModemManager
 
@@ -100,15 +100,15 @@ Once you can see the login screen, the setup has been completed and you can set 
 That’s it, you have now installed Home Assistant Supervised on your Raspberry Pi and have SSH access to keep it up to date. It is recommended that you log into the Pi using Putty at least once a month and use the following command to download security patches and keep the OS up to date.
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 Along with this guide, there is also associated documents available. These are essentially guides I use myself.
 
-- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
-- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/7aa3f36037288a945c6cb06254effc2b46fdd8f3/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
+- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/7aa3f36037288a945c6cb06254effc2b46fdd8f3/Backup%20and%20restore%20your%20config.md)
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
 Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide.
 
-:exclamation: This guide has also been tested using a USB SSD as the boot drive. You can replace the SD card with an SSD+USB enclosure but your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adaptors known to be working on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
+:exclamation: This guide has also been tested using a USB SSD as the boot drive. You can replace the SD card with an SSD+USB enclosure but your success with this may vary, and using an SSD has not been covered as part of this guide, and no support will be offered. To see a list of adapters known to be working on a Raspberry Pi 3 and 4, click [HERE](https://jamesachambers.com/raspberry-pi-4-usb-boot-config-guide-for-ssd-flash-drives/):exclamation:
