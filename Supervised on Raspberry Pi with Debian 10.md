@@ -49,6 +49,8 @@ usermod -aG sudo YOUR_USERNAME
 ```
 You will now be able to connect to Pi via SSH to copy and paste all the commands needed to install Home Assistant Supervised. Check your router for the IP address of your Pi. To connect to your Pi via SSH you will use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Putty is a free and open-source terminal emulator, serial console and network file transfer application. You can use Terminal on a Mac.
 
+You can now also unplug the Monitor, HDMI cable and keyboard (if you wish) as these are no longer needed.
+
 **1.6)** Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of your Pi, then select OPEN. You will now be prompted to enter your username and password. This will be the username and password you just setup in step 1.5.
 
 ## Section 2 – Install Home Assistant Supervised
@@ -84,11 +86,7 @@ You have completed the installation of Home Assistant Supervised on your Raspber
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove –y
 ```
 
-You can do this directly on the machine itself, or, if you wish to install Open-SSH so you can remotely connect to your Home Assistant machine from another PC, run the following from console. 
-
-```
-sudo apt install openssh-server -y
-```
+You can do this directly on the Pi itself with the Monitor and Keyboard attached, or via Putty.
 
 Along with this guide, there is also associated documents available. These are essentially guides I use myself and do not comply with ADR-14.
 
