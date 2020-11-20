@@ -23,7 +23,7 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
 
 Click **Select Image** and navigate to the location you saved the Debian xz-compressed image, Click **Select Target** and then choose your SD card / USB SSD, and then click **Flash**. Depending on the speed of your card / drive this process can take between 1 and 20 minutes to complete.
 
-**1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect an HDMI cable and Monitor, keyboard and mouse. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that lloks like this (or similar).
+**1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect an HDMI cable, Monitor and a keyboard. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that lloks like this (or similar).
 ```
 Debian GNU/Linux 10 rpi4-20201112 tty1
 rpi4-20201112 login: [   35.807813] vcc-sd: disabling
@@ -60,7 +60,7 @@ With Debian installed, you can move on to installing Home Assistant Supervised.
 ```
 sudo -i
 
-apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager
+apt-get install -y software-properties-common apparmor-utils apt-transport-https ca-certificates curl dbus jq network-manager
 
 systemctl disable ModemManager
 
@@ -68,8 +68,11 @@ systemctl stop ModemManager
 
 curl -fsSL get.docker.com | sh
 
-curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s -- -m raspberrypi4
 ```
+
+If you are using a Raspberry Pi 3, then replace `raspberrypi4` with `raspberrypi3` at the end of the last command.
+
 
 **2.2)** The installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
 
