@@ -68,10 +68,10 @@ systemctl stop ModemManager
 
 curl -fsSL get.docker.com | sh
 
-curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s -- -m raspberrypi4
+curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s -- -m raspberrypi4-64
 ```
 
-If you are using a Raspberry Pi 3, then replace `raspberrypi4` with `raspberrypi3` at the end of the last command.
+If you are using a Raspberry Pi 3, then replace `raspberrypi4-64` with `raspberrypi3` at the end of the last command.
 
 
 **2.2)** The installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
