@@ -26,30 +26,36 @@ Click **Select Image** and navigate to the location you saved the Debian xz-comp
 **1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect an HDMI cable, Monitor and a keyboard. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that looks like this (or similar).
 ```
 Debian GNU/Linux 10 rpi4-20201112 tty1
-rpi4-20201112 login: [   35.807813] vcc-sd: disabling
+rpi4-20201112 login:
 ```
 
-When you see this, Press Enter. You will now be prompted to login. The default username is **root**.
+When you see this, you can now login using the default username of **root**.
 
-**1.4)** First, you will make sure to OS is up to date by entering the following commands
+**1.4)** First, you will make sure the OS is up to date by entering the following commands.
 ```
 apt update && apt upgrade -y
 apt install sudo -y
 ```
 
-**1.5)** You will need to add a username and make that user part of the sudo group. To do this, run the following commands
+**1.5)** You will now add a username and make that user part of the sudo group. To do this, run the following commands
 
 ```
 adduser YOUR_USERNAME
 ```
-You will now be asked to enter your first name, last name, phone number etc. You can skip through all this by pressing *Enter*. Now you have added your user, you will need to make it part of the `sudo` group by running the following command.
+You will now be asked to enter a password twice (make note of this for later). You will then be asked to enter your first name, last name, phone number etc. You can skip through all this by pressing *Enter*. Now you have added your user, you will need to make it part of the `sudo` group by running the following command.
 
 ```
 usermod -aG sudo YOUR_USERNAME
 ```
-You will now be able to connect to Pi via SSH to copy and paste all the commands needed to install Home Assistant Supervised. Check your router for the IP address of your Pi. To connect to your Pi via SSH you will use a piece of software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Putty is a free and open-source terminal emulator, serial console and network file transfer application. You can use Terminal on a Mac.
+You will now be able to connect to the Pi via SSH using the username and password you have just created to copy and paste the commands needed to install Home Assistant Supervised. Check your router for the IP address of your Pi, or run the following commmand in Putty/Terminal and look for the entry `inet`.
 
-You can now also unplug the Monitor, HDMI cable and keyboard (if you wish) as these are no longer needed.
+```
+ip addr show eth0
+``` 
+
+To connect to your Pi via SSH you will use a piece of software called PuTTY (use Terminal on a Mac), available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Putty is a free and open-source terminal emulator, serial console and network file transfer application. 
+
+You can now unplug the Monitor, HDMI cable and keyboard as these are no longer needed, or leave them connected if you wish.
 
 **1.6)** Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of your Pi, then select OPEN. You will now be prompted to enter your username and password. This will be the username and password you just setup in step 1.5.
 
