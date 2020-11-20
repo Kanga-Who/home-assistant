@@ -17,7 +17,7 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
 
 ## Section 1 – Install Debian
 
-**1.1)** Start by downloading the correct `xz-compressed image` for your Pi from [HERE](https://raspi.debian.net/tested-images/). For a Pi4, you will need the image listed as *4* under *Family*
+**1.1)** Start by downloading the correct `xz-compressed image` for your Pi from [HERE](https://raspi.debian.net/tested-images/). For a Pi 4, you will need the image listed as *4* under *Family*
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian xz-compressed image to your SD Card / USB SSD, you will use a program called **balenaEtcher**, available [HERE](https://www.balena.io/etcher/). Once the Debian image has downloaded, insert your SD Card / USB SSD into your PC and launch Etcher.
 
