@@ -23,7 +23,7 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
 
 Click **Select Image** and navigate to the location you saved the Debian xz-compressed image, Click **Select Target** and then choose your SD card / USB SSD, and then click **Flash**. Depending on the speed of your card / drive this process can take between 1 and 20 minutes to complete.
 
-**1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect an HDMI cable, Monitor and a keyboard. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that lloks like this (or similar).
+**1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect an HDMI cable, Monitor and a keyboard. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that looks like this (or similar).
 ```
 Debian GNU/Linux 10 rpi4-20201112 tty1
 rpi4-20201112 login: [   35.807813] vcc-sd: disabling
