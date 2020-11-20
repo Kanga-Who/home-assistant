@@ -1,8 +1,8 @@
 ## Installing Home Assistant Supervised on Raspberry Pi with Debian 10
 
-This guide will help you to install Home Assistant Supervised, on a Raspberry Pi with Debian 10. This guide has been tested on a Raspberry Pi 4 4gb model, with USB SSD as the boot drive. 
+This guide will help you to install Home Assistant Supervised, on a Raspberry Pi with Debian 10. This guide has been tested on a Raspberry Pi 4 4gb model, with USB SSD as the boot drive. This installation takes approx 45 mins to complete, but may be faster/slower depending on the boot drive you use and your internet speed.
 
-:warning: Using Debian 10 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you a supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
+:warning: Using Debian 10 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you an officially supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
 
 While every effort has been made to ensure this guide complies with ADR-14, no guarantee can be made it does now, or in the future.
 
