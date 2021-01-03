@@ -63,7 +63,7 @@ if [ ! -z "${MISSING_PACKAGES}" ]; then
 fi
 
 # Check if Modem Manager is enabled
-if systemctl list-unit-files ModemManager.service | grep enabled > /dev/null 2>&1; then
+if systemctl is-enabled ModemManager.service &> /dev/null; then
     warn "ModemManager service is enabled. This might cause issue when using serial devices."
 fi
 
@@ -102,9 +102,9 @@ if [ ! -f "$FILE_NM_CONNECTION" ]; then
 fi
 
 warn "Changes are needed to the /etc/network/interfaces file"
-info "If you have modified the network on the host manually, those can now be overwritten"
+info "If you have modified the network on the host manualy, those can now be overwritten"
 info "If you do not overwrite this now you need to manually adjust it later"
-info "Do you want to proceed with that? [N/y] "
+info "Do you want to proceed with overwriting the /etc/network/interfaces file? [N/y] "
 read answer < /dev/tty
 
 if [[ "$answer" =~ "y" ]] || [[ "$answer" =~ "Y" ]]; then
