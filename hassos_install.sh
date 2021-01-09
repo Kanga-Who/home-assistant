@@ -81,24 +81,21 @@ info "Container ID is $VMID."
 
 # Get latest Home Assistant disk image archive URL
 msg "Getting URL for latest Home Assistant disk image..."
-RELEASE_EXT=vmdk.xz
+RELEASE_TYPE=vmdk
 URL=$(cat<<EOF | python3
 import requests
-url = 'https://api.github.com/repos/home-assistant/operating-system/releases'
+url = "https://api.github.com/repos/home-assistant/operating-system/releases"
 r = requests.get(url).json()
-if 'message' in r:
-  exit()
+if "message" in r:
+    exit()
 for release in r:
-  if release['prerelease']:
-    continue
-  for asset in release['assets']:
-    if asset['name'].endswith('$RELEASE_EXT'):
-      global image_url
-      image_url = asset['browser_download_url']
-      break
-  if 'image_url' in globals():
-    print(image_url)
-    break
+    if release["prerelease"]:
+        continue
+    for asset in release["assets"]:
+        if asset["name"].find("$RELEASE_TYPE") != -1:
+            image_url = asset["browser_download_url"]
+            print(image_url)
+            exit()
 EOF
 )
 if [ -z "$URL" ]; then
@@ -113,7 +110,11 @@ FILE=$(basename $URL)
 
 # Extract Home Assistant disk image
 msg "Extracting disk image..."
-xz -d $FILE
+case $FILE in
+  *"gz") gunzip -f $FILE;;
+  *"xz") xz -d $FILE;;
+  *) die "Unable to handle file extension '${FILE##*.}'.";;
+esac
 
 # Create variables for container disk
 STORAGE_TYPE=$(pvesm status -storage $STORAGE | awk 'NR>1 {print $2}')
@@ -130,11 +131,11 @@ done
 
 # Create VM
 msg "Creating VM..."
-VM_NAME=$(sed -e "s/\_//g" -e "s/.${RELEASE_EXT}//" <<< $FILE)
+VM_NAME=$(sed -e "s/\_//g" -e "s/.${RELEASE_TYPE}.*$//" <<< $FILE)
 qm create $VMID -agent 1 -bios ovmf -name $VM_NAME -net0 virtio,bridge=vmbr0 \
   -onboot 1 -ostype l26 -scsihw virtio-scsi-pci
 pvesm alloc $STORAGE $VMID $DISK0 128 1>&/dev/null
-qm importdisk $VMID ${FILE%".xz"} $STORAGE ${IMPORT_OPT:-} 1>&/dev/null
+qm importdisk $VMID ${FILE%.*} $STORAGE ${IMPORT_OPT:-} 1>&/dev/null
 qm set $VMID \
   -efidisk0 ${DISK0_REF},size=128K \
   -sata0 ${DISK1_REF},size=6G > /dev/null
