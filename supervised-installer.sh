@@ -102,7 +102,7 @@ if [ ! -f "$FILE_NM_CONNECTION" ]; then
 fi
 
 warn "Changes are needed to the /etc/network/interfaces file"
-info "If you have modified the network on the host manualy, those can now be overwritten"
+info "If you have modified the network on the host manually, those can now be overwritten"
 info "If you do not overwrite this now you need to manually adjust it later"
 info "Do you want to proceed with overwriting the /etc/network/interfaces file? [N/y] "
 read answer < /dev/tty
