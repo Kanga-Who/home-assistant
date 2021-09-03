@@ -1,26 +1,26 @@
-## Installing Home Assistant Supervised on Debian
+## Installing Home Assistant Supervised on Debian 11
 
-This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including a Lenovo m72e, Dell Optiplex SFF 990 and Dell Optiplex USFF 780. 
+This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including a Lenovo m72e, Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
-:warning: Using Debian 10 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you a supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
+:warning: Using Debian 11 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you a supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
 
-While every effort has been made to ensure this guide complies with ADR-14, no guarantee can be made it does now, or in the future.
+While every effort has been made to ensure this guide complies with [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md), no guarantee can be made it does now, or in the future.
 
-In this guide, you will be using Debian 10 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached (although you can if you prefer).
+In this guide, you will be using Debian 11 as the operating system. This type of installation is what is called “headless” and after the installation is complete, you will not need to have a keyboard, mouse or monitor attached, although you can if you prefer.
 
-*What is Home Assistant Supervised?*
+#### What is Home Assistant Supervised? ####
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Section 1 if you need assistance with installing Debian 10. If you already have Debian 10 installed and wish to move on to installing Home Assistant, move on to Section 2. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+If you are new to Home Assistant, you can now proceed to Section 1 if you need assistance with installing Debian 11. If you already have Debian 11 installed and wish to move on to installing Home Assistant, move on to Section 2.
 
 ## Section 1 – Install Debian
 
 <details>
-  <summary>If you would like a step by step guide on how to install Debian 10 to your machine, click here to expand for instructions</summary>
+  <summary>If you would like a step by step guide on how to install Debian 11 to your machine, click here to expand for instructions.</summary>
 
 
-**1.1)** Start by downloading `debian-live-10.5.0-amd64-standard.iso.torrent` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/bt-hybrid/). This is a torrent file, so use your favourite torrent program. If you would prefer to download an ISO, you can find the `debian-live-10.5.0-amd64-standard.iso` ISO file [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/).
+**1.1)** Start by downloading `debian-live-11.0.0-amd64-standard.iso` from [HERE](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/). If you would prefer the full Debain image with all drivers, download `firmware-11.0.0-amd64-DVD-1.iso` [HERE](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.0.0+nonfree/amd64/iso-dvd/firmware-11.0.0-amd64-DVD-1.iso)
 
 **1.2)** While Debian is downloading, you will need some other programs to help with the setup and installation. To burn the Debian ISO image to a USB thumb drive, you will use a program called Rufus which can be downloaded from [HERE](https://rufus.ie/). 
 
@@ -46,7 +46,7 @@ If you are new to Home Assistant, you can now proceed to Section 1 if you need a
 
 **1.13)**	Next will be **Partition Disks**. Select **Guided - use entire disk** and then click continue. On the next screen make sure the correct disk is selected and click continue. On the next screen select **All files in one partition** and click continue. On the next screen, make sure **Finish partitioning and write changes to disk** is selected, and click continue. On the next screen, select **Yes** and then click continue. The installer will now perform some automated tasks. This will take 1-2 mins.
 
-**1.14)**	Next will be **Configure the package manager**. Select **No** and click continue. Select your Country and click continue. You can leave the default selection **deb.debian.org** selected and click continue. Leave the next page blank and click continue. The installer will now perform some automated tasks. This will take a few minutes.
+**1.14)**	Next will be **Configure the package manager**. Select **Yes** and click continue. Select your Country and click continue. You can leave the default selection **deb.debian.org** selected, or select another mirror of your choosing, and click continue. Leave the next page blank and click continue. The installer will now perform some automated tasks. This will take a few minutes.
 
 **1.15)**	Next will be **Install the GRUB bootloader**. Select **Yes** and click continue. Now select the drive you are installing Debian on, and click continue. The installer will now perform some automated tasks. This will take 1-2 mins and then installation will be complete.
 
@@ -92,7 +92,7 @@ Depending on the speed of your internet connection, this could take anywhere fro
 ```
 sudo -i
 
-apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager
+apt-get install -y software-properties-common apparmor-utils apt-transport-https ca-certificates curl dbus jq network-manager
 
 systemctl disable ModemManager
 
@@ -119,14 +119,11 @@ You can do this directly on the machine itself, or, if you wish to install Open-
 sudo apt install openssh-server -y
 ```
 
-:warning: If you install Open-SSH you will not be adhering to the guidelines of [ADR-14](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) and therefore will not have an officially supported installation, however, installing Open-SSH will not break your machine. If you do choose to install and use Open-SSH, you can then use software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+:warning: If you install Open-SSH you will not be adhering to the guidelines of [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) and therefore will not have an officially supported installation, however, installing Open-SSH will not break your machine. If you do choose to install and use Open-SSH, you can then use software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 Putty is a free and open-source terminal emulator, serial console and network file transfer application. You can use Putty to execute commands on the Debian machine from your Windows PC. (Use Terminal on a Mac). To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19, and the username and password you created from Step 1.10.
 
-Along with this guide, there is also associated documents available. These are essentially guides I use myself and do not comply with ADR-14.
-
-- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/master/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
-- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
+If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui). 
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
