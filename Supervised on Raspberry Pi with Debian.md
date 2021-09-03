@@ -97,7 +97,3 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove –y
 You can do this directly on the Pi itself with the Monitor and Keyboard attached, or via Putty.
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements, or find an error that needs correcting.
-
-![Supervisor Panel|690x242, 75%](upload://rNk9pMagmLvgf1EBZXNbYWcp7ti.png) 
-
-![System Health|356x500, 75%](upload://kqES428Uz4AgTysVsdsATJ6XLfT.png)
