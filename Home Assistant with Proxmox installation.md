@@ -1,18 +1,18 @@
-## Installing Home Assistant using Proxmox
+## Installing Home Assistant OS using Proxmox 7
 
-This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990 and Dell Optiplex USFF 780. 
+This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
-This installation uses an offical image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required.
+This installation uses an official image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required.
 
 *What is Home Assistant?*
 
 Home Assistant is a full UI managed home automation ecosystem that runs Home Assistant Core, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor plus the added benefit of dozens of add-ons (think app store) that work natively inside the Home Assistant environment.
 
-If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the document  *Backing up and Restoring your configuration* located  [HERE](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Backup%20and%20restore%20your%20config.md)
+If you are new to Home Assistant, you can now proceed to Step 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the documentation on backing up and restoring your configuration, located  [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui). 
 
 ## Section 1 – Install Proxmox
 
-**1.1)** Download Proxmox VE 6.2 ISO Installer from [HERE](https://www.proxmox.com/en/downloads/category/iso-images-pve)
+**1.1)** Download Proxmox VE 7.x ISO Installer from [HERE](https://www.proxmox.com/en/downloads/category/iso-images-pve)
 
 **1.2)** You will now need to make a bootable USB drive using balenaEtcher, available [HERE](https://www.balena.io/etcher/). Use a USB drive of at least 8gb. Insert the blank USB drive into your PC, open Etcher, select the Proxmox image you have just downloaded, select your USB drive, then click Flash.
 
@@ -35,7 +35,7 @@ If you are new to Home Assistant, you can now proceed to Step 1. If you have an 
 - **IP Address** - you can choose an IP for your machine, if you have a specific IP you wish to use on your network, enter this now
 - **Netmask** - should auto populate and be something like `255.255.255.0` depending on your network configuration.
 - **Gateway** - this is (normally) the IP of your router, this should auto populate with the correct info, if it does not, enter the IP of your router
-- **DNS server** - you can leave this at the default on your network (normally the same IP as your router), or input one of your choosing like a Google DNS server` 8.8.8.8 or` a Cloudfare DNS server like `1.1.1.1`.
+- **DNS server** - you can leave this at the default on your network (normally the same IP as your router), or input one of your choosing like a Google DNS server` 8.8.8.8 or` a Cloudflare DNS server like `1.1.1.1`.
 
 **1.10)** Next on the **Summary** screen, confirm all the details are correct, then click Install. This process can take anywhere from 2 -20min depending on your machine.
 
@@ -79,21 +79,19 @@ To test this has worked, log out of Putty by typing `exit` and press enter. Star
 ```
 sudo nano /etc/apt/sources.list
 ```
-Press and hold Control button and K button together on your keyboard to remove all the text you can see (Control+K)
+Press and hold Control button and K button together on your keyboard to remove all the text you can see (`Control+K`)
 
 When the screen is blank, copy and paste in the following information.
 ```
-#
-deb http://ftp.debian.org/debian buster main contrib
-deb http://ftp.debian.org/debian buster-updates main contrib
+deb http://ftp.debian.org/debian bullseye main contrib
+deb http://ftp.debian.org/debian bullseye-updates main contrib
 
 # PVE pve-no-subscription repository provided by proxmox.com,
 # NOT recommended for production use
-deb http://download.proxmox.com/debian/pve buster pve-no-subscription
+deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 
 # security updates
-deb http://security.debian.org/debian-security buster/updates main contrib
-#
+deb http://security.debian.org/debian-security bullseye-security main contrib
 ```
 Then press `Control+X`, then `Y` for Yes, then press Enter.
 
@@ -116,24 +114,24 @@ Installing Home Assistant in Proxmox has been made very simple with an excellent
 **3.1)** To run the install script, copy and paste the following command into the Putty window you have open. This will download an official image from the Home Assistant website and configure it in Proxmox for you. This will take 2-20mins depending on your internet connection and machine.
 
 ```
-sudo bash -c "$(wget -qLO - https://github.com/whiskerz007/proxmox_hassos_install/raw/master/install.sh)"
+sudo bash -c "$(wget -qLO - https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/hassos_install.sh)"
 ```
 
 Once this has finished, you will see `[INFO] Completed Successfully! New VM ID is 100`. When you can see this message in Putty, you can move over the Proxmox page to configure the VM.
 
 **3.2)** In your web browser, head to the Proxmox web interface at `https://MACHINE_IP:8006` and login using the username `root` and the password you created during Step 1.8. You will get a message saying "You do not have a valid subscription for this server.", you can safely ignore this and click OK.
 
-On the left hand side, you should see a new entry under **Datacentre --- Your_Machine_Name** called `100 (hassosova-4.15)` or similar. This is the Home Assistant VM created by the script. It is currently not running and you should now make some changes to how the VM will operate.
+On the left hand side, you should see a new entry under **Datacentre --- Your_Machine_Name** called `100 (haosova-6.3)` or similar. This is the Home Assistant VM created by the script. It is currently not running and you should now make some changes to how the VM will operate.
 
-**3.3)** Click on the VM named `100 (hassosova-4.15)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
+**3.3)** Click on the VM named `100 (haosova-6.3)`. You should now see a menu listing Summary, Console, Hardware, Cloud-init etc. Click on **Hardware**. The key things you will want to change are **Memory, Processors and Hard Disk**. 
 
 **3.4)** Click on **Memory**, then click on **Edit** in the bar just above. The default value will be `512`. Depending on how much Memory you have in your machine, you can increase this value to `2048` (2gb) or `4096` (4gb), and then click OK. Home Assistant happily runs with 2gb of memory. 
 
 **3.5)** Click on **Processors**, then click on **Edit** in the bar just above. The default values will be Sockets 1 and Cores 1. Leave Sockets at 1. Depending on your CPU type (dual core, quad core, etc) change the value of Cores to 2, or 4, then click OK. You can also leave this value at 1 which will only use 1 CPU Core.
 
-**3.6)** Click on **Hard Disk**, then click on **Resize Disk** in the bar just above. The drive is already 6gb, so you can add a value to increase the size of the disk. A good value to use is 26 as this will make the drive size 32gb which is more than enough for Home Assistant. Enter a value, then click Resize Disk.
+**3.6)** Click on **Hard Disk**, then click on **Resize Disk** in the bar just above. The drive is already 32gb which is more than enough for Home Assistant, but you can add a value to increase the size of the disk. As an example, if you add a value of 32gb, this will make the drive size 64gb. Enter a value, then click Resize Disk.
 
-**3.7)** If you have a Zigbee or Z-wave stick connected to the machine that you wish to use with Home Assistant, you can configure these now by clicking on **USB Device** then click on **Edit** in the bar just above. You can now choose the USB Zigbee or Z-wave device from the dropdown list, then click OK. 
+**3.7)** If you have a Zigbee or Z-wave stick connected to the machine that you wish to use with Home Assistant, you can configure these now by clicking on **USB Device** then click on **Edit** in the bar just above. You can now choose the USB Zigbee or Z-wave device from the drop-down list, then click OK. 
 
 **3.8)** Now move to **Options** tab in the list, 2 places below your current position of **Hardware**. Now double click on **Boot Order** and select your internal drive (SSD or HDD), such as 'sata0' from the list and make sure the check box next to it is checked/enabled and it is in position 1 (first boot device), then click OK.
 
@@ -145,15 +143,12 @@ You can now enter this IP and port 8123 (eg. http://192.168.1.150:8123) in your 
 
 Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document *Backing up and Restoring your configuration.*
 
-That’s it, you have now installed Home Assistant on your machine using Proxmox and have SSH access to your machine using Putty to keep it up to date. It is recommended that you log into the Proxmox machine using Putty at least once a month and use the following command to download security patches and keep the OS up to date.
+That’s it, you have now installed Home Assistant on your machine using Proxmox and have SSH access to your machine using Putty to keep it up to date. It is recommended that you log into the Proxmox machine using Putty at least once a month and use the following command to download security patches and keep the OS up to date. 
 
 ```
-sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove –y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y
 ```
 
-Along with this guide, there is also associated documents available. These are essentially guides I use myself.
-
-- [Install Samba, Portainer and MQTT on Ubuntu or Debian](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Install%20Samba%2C%20Portainer%20and%20MQTT.md)
-- [Backing up and Restoring your configuration](https://github.com/Kanga-Who/home-assistant/blob/53ac6a3e77e3654a4f5835bde7cef91493cc08a0/Backup%20and%20restore%20your%20config.md)
+If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui). 
 
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
