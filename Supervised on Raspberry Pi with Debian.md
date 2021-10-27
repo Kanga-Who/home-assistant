@@ -23,6 +23,7 @@ If you are new to Home Assistant, you can now proceed to **Section 1**. If you h
 
 Click **Select Image** and navigate to the location you saved the Debian `xz-compressed image`, Click **Select Target** and then choose your SD card / USB SSD, and then click **Flash**. Depending on the speed of your card / drive this process can take between 1 and 20 minutes to complete.
 
+
 **1.3)** Once the image has been written to the SD card / USB SSD, you can safely remove the SD card / USB SSD and plug it into your Pi. Before powering on the Pi, you will need to connect a Network Cable, HDMI cable, Monitor and a keyboard. Once you have done this, you can connect the power cable to your Pi. The initial boot will take a few minutes to complete. When the Pi is ready to use, you will see a screen that looks like this (or similar).
 ```
 Debian GNU/Linux 11 rpi4-20210823 tty1
@@ -37,7 +38,7 @@ apt update && apt upgrade -y
 apt install sudo -y
 ```
 
-**1.5)** You will now add a username and make that user part of the sudo group. To do this, run the following commands
+**1.5)** You will now add a username and make that user part of the sudo group. To do this, run the following command
 
 ```
 adduser YOUR_USERNAME
@@ -51,11 +52,10 @@ You will now be able to connect to the Pi via SSH using the username and passwor
 
 ```
 ip addr show eth0
+exit
 ``` 
 
-To connect to your Pi via SSH you will use a piece of software called **PuTTY** (use Terminal on a Mac), available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Putty is a free and open-source terminal emulator, serial console and network file transfer application. 
-
-You can now unplug the Monitor, HDMI cable and keyboard as these are no longer needed, or leave them connected if you wish.
+You will now unplug the monitor and keyboard from the Pi as these will no longer be used. You will continue the installation by connecting to your Pi via SSH using a piece of software called **PuTTY** (use Terminal on a Mac), available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Putty is a free and open-source terminal emulator, serial console and network file transfer application. 
 
 **1.6)** Open Putty and in the HOST NAME (OR IP ADDRESS) box, enter the IP of your Pi, then select OPEN. You will now be prompted to enter your username and password. This will be the username and password you just setup in step 1.5.
 
@@ -88,6 +88,26 @@ Once you can see the login screen, the setup has been completed and you can set 
 
 If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui)
 
+## Section 3 - Install OS Agent
+
+This is the OS Agent for Home Assistant. It is used for Home Assistant OS and Home Assistant Supervised installation types and it allows the Home Assistant Supervisor to communicate with the host operating system.
+
+**3.1)** Connect to your machine via SSH using Putty, then run the following commands. 
+
+```
+sudo apt --fix-broken install
+sudo apt-get install udisks2 wget
+cd /usr/local/src
+```
+
+**3.2)** Visit the OS Agent page and then replace the version number with the latest available, into the commands below. *(i.e. replace all references to 1.1.1 with the latest available)*
+https://github.com/home-assistant/os-agent/releases/latest
+
+```
+sudo wget https://github.com/home-assistant/os-agent/releases/download/1.1.1/os-agent_1.1.1_linux_aarch64.deb
+dpkg -i os-agent_1.1.1_linux_aarch64.deb
+sudo reboot
+```
 You have completed the installation of Home Assistant Supervised on your Raspberry Pi running Debian. It is recommended that you log into your machine at least once a month and use the following command to download security patches and keep the OS up to date.
 
 ```
@@ -96,4 +116,43 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove –y
 
 You can do this directly on the Pi itself with the Monitor and Keyboard attached, or via Putty.
 
-I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements, or find an error that needs correcting.
+## Section 4 - Unhealthy Installation
+<details>
+  <summary> If you are faced with the HA Supervisor showing you the 'Unhealthy Installation' error, click here to expand and follow this procedure to fix it.</summary>
+
+**4.1)** Install the **SSH & Web Terminal** add-on from with the HA Supervisor add-on store. It looks like this. 
+![ssh|331x90](upload://94WdjeVWRIQ3mX4iSkjXKrAFfed.png)
+
+Configure the add-on so you can connect to the HA container. Here is an example of a simple working configuration you can use, adjust the `username` and `password` to suit.
+
+```
+ssh:
+  username: USERNAME
+  password: PASSWORD
+  authorized_keys: []
+  sftp: false
+  compatibility_mode: false
+  allow_agent_forwarding: false
+  allow_remote_port_forwarding: false
+  allow_tcp_forwarding: false
+zsh: true
+share_sessions: false
+packages: []
+init_commands: []
+``` 
+You will need to change the port to 23 (or other unused port number of your choosing) in the Network section of the Configuration tab. Once you have installed and configured the add-on, move on to the next step.
+
+**4.2)** Using Putty, login to the HA machine using the IP of the machine and port 23. Use the username and password you configured in the previous step.
+
+**4.3)** Once logged in you can now execute the following command;
+```
+ha jobs options --ignore-conditions healthy
+```
+Once you have done this, you should see a message saying, *Command completed successfully*. You can type `exit` to leave the shell connection. You can now also turn off/stop the SSH & Web Terminal add-on in HA as you will no longer need it. It can be restarted at anytime.
+
+![Capture|593x337](upload://9to6dfTx05R9O7d1G0uK4gbDail.png)
+</details>
+
+___
+
+Thank you to @Tamsy for input and additional information. I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements, or find an error that needs correcting.
