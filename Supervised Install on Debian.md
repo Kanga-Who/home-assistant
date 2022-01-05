@@ -1,8 +1,14 @@
 ## Installing Home Assistant Supervised on Debian 11
+##  :stop_sign: Before proceeding, please read the following information :stop_sign: 
 
+It is being made increasing difficult to run a Supervised installation, by choosing to do so you understand the guidelines linked in the next paragraph. If you are new to Home Assistant and/or Linux, then this installation type is most likely not for you and you should choose to run [Home Assistant OS](https://www.home-assistant.io/installation/generic-x86-64) on your machine 
+
+:warning: Using Debian 11 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/6da4482d171f2ef04de9320d313526653b5818b4/adr/0014-home-assistant-supervised.md) will give you an[u] officially supported[/u] installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation may become officially unsupported. 
+
+:warning: If you do not understand what this means, or that making almost any changes to the underlying OS may render your install Unsupported/Unhealthy, this installation method is not for you and you should install HA OS. If you do not require the supervisor, then installing [HA Container](https://www.home-assistant.io/installation/generic-x86-64#install-home-assistant-container) may be a better option and will allow you full control over the OS to install additional software and Docker containers.
+
+_____________________________
 This guide will help you to install Home Assistant Supervised, on almost any machine type you choose. This guide has been tested on machines including a Lenovo m72e, Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
-
-:warning: Using Debian 11 and following a strict set of guidelines available [HERE](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) will give you a supported installation of Home Assistant Supervised. If you choose at anytime to install additional software to the Debian operating system, your installation will become officially unsupported. Community support via the forums is always available however.
 
 While every effort has been made to ensure this guide complies with [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md), no guarantee can be made it does now, or in the future.
 
@@ -60,93 +66,86 @@ where *username* is the one you setup during **Step 1.11**
 
 **1.17)**	Log out of the root account by pressing ctrl-d on your keyboard then to login to the machine using the username and password you created in **Step 1.11**.
 
-**1.18)**	Before you start installing Home Assistant Supervised, you will need to update the operating system. Enter this command, and press enter.
-
-```
-sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
-```
-
-**1.19)**	Once this has completed, you will need to find the IP address of the machine. You can do this by checking your router, or by typing this command into the terminal.
+**1.18)**	Once this has completed, you will need to find the IP address of the machine. You can do this by checking your router, or by typing this command into the terminal.
 
 ```
 ip a
 ```
 
-You should now see some information on your screen showing network configuration. You are looking for information like `inet 192.168.1.150/24`, or, `inet 10.1.1.50/24` depending on your network setup. This is the IP of the machine and you can now use this to connect to the machine from another PC.
+You should now see some information on your screen showing network configuration. You are looking for information like `inet 192.168.1.150/24`, or, `inet 10.1.1.50/24` depending on your network setup. This is the IP of the machine and you can now use this to connect to the machine from another PC using a program lite Putty. Information on how to do this is at Step 3.3 below.
 </details>
 
-## Section 2 – Install Home Assistant Supervised
+## Section 2 - Install OS Agent, Docker and Dependencies
 
-With Debian installed, you can move on to installing Home Assistant Supervised.
+You will now install the OS Agent for Home Assistant. It is used for Home Assistant OS and Home Assistant Supervised installation types and it allows the Home Assistant Supervisor to communicate with the host operating system.
 
-**2.1)** First you will start by updating the Debian OS to make sure all the latest updates and security patches are installed. To do this, log into the terminal of your machine, enter the following command and press enter.
-
-```
-sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
-```
-
-Depending on the speed of your internet connection, this could take anywhere from 30 seconds to 20 minutes to complete. When finished, you will see the prompt.
-
-**2.2)** Now the operating system is up to date, you can install Home Assistant Supervised. Enter each line of the below commands into the terminal and execute them one at a time.
+**2.1)** In terminal (or connected to your machine via SSH using Putty - see Step 3.3 for info), run the following commands to update the Debian OS, install Docker and the required dependencies for the OS Agent and the Supervised installer. Execute the following commands one at a time.
 
 ```
 sudo -i
 
-apt-get install -y software-properties-common apparmor-utils apt-transport-https ca-certificates curl dbus jq network-manager
+apt update && sudo apt upgrade -y && sudo apt autoremove -y
 
-systemctl disable ModemManager
+apt --fix-broken install
 
-systemctl stop ModemManager
+apt-get install jq curl avahi-daemon apparmor-utils udisks2 libglib2.0-bin network-manager dbus wget -y
 
 curl -fsSL get.docker.com | sh
-
-curl -sL "https://raw.githubusercontent.com/Kanga-Who/home-assistant/master/supervised-installer.sh" | bash -s
 ```
 
-**2.3)** The installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
+**2.2)** Visit the OS Agent page and then replace the version number with the latest available, into the commands below. *(i.e. replace all references to 1.2.2 with the latest available)*
+
+https://github.com/home-assistant/os-agent/releases/latest
+
+Execute the following commands one at a time.
+```
+wget https://github.com/home-assistant/os-agent/releases/download/1.2.2/os-agent_1.2.2_linux_x86_64.deb
+
+dpkg -i os-agent_1.2.2_linux_x86_64.deb
+```
+## Section 3 – Install Home Assistant Supervised
+
+With the OS Agent and dependencies installed, you can move on to installing Home Assistant Supervised.
+
+**3.1)** Enter each line of the below commands into the terminal and execute them one at a time.
+
+If you have rebooted since section 2, make sure you are running as root before executing the below commands.
+```
+sudo -i
+```
+Execute the following commands one at a time.
+```
+wget https://github.com/home-assistant/supervised-installer/releases/latest/download/homeassistant-supervised.deb
+
+dpkg -i homeassistant-supervised.deb
+```
+
+**3.2)** You may be prompted to choose a machine type during the installation process, if so, choose `generic-x86-64`.
+
+The installation time is generally under 5 mins, however it can take longer so be patient. You can check the progress of Home Assistant setup by connecting to the IP address of your machine in Chrome/Firefox on port 8123. (e.g. http://192.168.1.150:8123) 
 
 Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to the document *Backing up and Restoring your configuration.*
 
-You have completed the installation of Home Assistant Supervised on your Debian machine. It is recommended that you log into your machine at least once a month and use the following command to download security patches and keep the OS up to date.
+You have completed the installation of Home Assistant Supervised on your Debian machine. It is recommended that you log into your machine at least once a month and use the following command to download security patches and keep the OS up to date. You can do this directly on the machine itself via the terminal.
 
 ```
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove –y
 ```
 
-You can do this directly on the machine itself, or, if you wish to install Open-SSH so you can remotely connect to your Home Assistant machine from another PC, run the following from console. 
+**3.3)** If you wish to install Open-SSH so you can remotely connect to your Home Assistant machine from another PC.
+
+:warning: If you install Open-SSH you will not be adhering to the guidelines of [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) and therefore will not have an officially supported installation, however, installing Open-SSH will not break your machine. Run the following from console. 
 
 ```
 sudo apt install openssh-server -y
 ```
 
-:warning: If you install Open-SSH you will not be adhering to the guidelines of [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md) and therefore will not have an officially supported installation, however, installing Open-SSH will not break your machine. If you do choose to install and use Open-SSH, you can then use software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+ If you do choose to install and use Open-SSH, you can then use software called PuTTY, available [HERE](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 Putty is a free and open-source terminal emulator, serial console and network file transfer application. You can use Putty to execute commands on the Debian machine from your Windows PC. (Use Terminal on a Mac). To connect to the Debian machine via Putty, you will need the IP of the machine from Step 1.19, and the username and password you created from Step 1.10.
 
-If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui). 
+If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui)
 
-## Section 3 - Install OS Agent
-
-This is the OS Agent for Home Assistant. It is used for Home Assistant OS and Home Assistant Supervised installation types and it allows the Home Assistant Supervisor to communicate with the host operating system.
-
-**3.1)** Connect to your machine via SSH using Putty, then run the following commands.
-
-```
-sudo apt --fix-broken install
-sudo apt-get install udisks2 wget
-cd /usr/local/src
-```
-
-**3.2)** Visit the OS Agent page and then replace the version number with the latest available, into the commands below. *(i.e. replace all references to 1.2.0 with the latest available)*
-
-https://github.com/home-assistant/os-agent/releases/tag/1.2.0
-
-
-```
-sudo wget https://github.com/home-assistant/os-agent/releases/download/1.2.0/os-agent_1.2.0_linux_x86_64.deb
-dpkg -i os-agent_1.2.0_linux_x86_64.deb
-sudo reboot
-```
 ## Section 4 - Unhealthy Installation
 <details>
   <summary> If you are faced with the HA Supervisor showing you the 'Unhealthy Installation' error, click here to expand and follow this procedure to fix it.</summary>
@@ -187,4 +186,6 @@ Once you have done this, you should see a message saying, *Command completed suc
 ___
 I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements.
 
-Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide and to others who have contributed code and ideas, you support is appreciated.
+Thank you to [nickrout](https://community.home-assistant.io/u/nickrout/) for testing, feedback and edits to help improve this guide and to others who have contributed code and ideas including [Tamsy](https://community.home-assistant.io/u/tamsy/), you support is appreciated.
+
+Old installation instructions using the script installer can be found on my Github, [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Supervised%20Install%20on%20Debian.md)
