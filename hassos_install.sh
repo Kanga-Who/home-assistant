@@ -81,10 +81,10 @@ info "Container ID is $VMID."
 
 # Get latest Home Assistant disk image archive URL
 msg "Getting URL for latest Home Assistant disk image..."
-RELEASE_TYPE=qcow2
+RELEASE_TYPE=vmdk
 URL=$(cat<<EOF | python3
 import requests
-url = "https://github.com/home-assistant/operating-system/releases/download/${BRANCH}/haos_ova-${BRANCH}.qcow2.xz"
+url = "https://api.github.com/repos/home-assistant/operating-system/releases"
 r = requests.get(url).json()
 if "message" in r:
     exit()
