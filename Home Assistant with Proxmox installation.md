@@ -81,4 +81,4 @@ That’s it, you have now installed Home Assistant on your machine using Proxmox
 
 If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui).
 
-I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements. HA OS install script provided by @tteck
+I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements. Scripts provided by @tteck
