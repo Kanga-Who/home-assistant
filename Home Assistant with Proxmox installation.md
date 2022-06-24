@@ -1,4 +1,4 @@
-**Installing Home Assistant OS using Proxmox 7**
+## Installing Home Assistant OS using Proxmox 7 ##
 
 This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
@@ -10,7 +10,7 @@ Home Assistant is a full UI managed home automation ecosystem that runs Home Ass
 
 If you are new to Home Assistant, you can now proceed to Section 1. If you have an existing Home Assistant installation and need to know how to back up your current configuration, please see the documentation on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui).
 
-Section 1 – **Install Proxmox**
+### Section 1 – **Install Proxmox** ###
 
 1.1) You will want to ensure UEFI Boot & Virtualisation is enabled and Secure Boot is disabled in the bios of your machine.
 
@@ -45,7 +45,7 @@ Once the installation is complete, take note of the IP information on screen, re
 
 After 1-2 minutes, you should be able to access Proxmox at `https://MACHINE_IP:8006`. If you see a message like Warning: Potential Security Risk Ahead, you can safely ignore this, accept the risk and continue.
 
-Section 2 - **Configure and Update Proxmox**
+### Section 2 - **Configure and Update Proxmox** ###
 
 2.1) Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. This has been made very simple with scripts created by @tteck.
 
@@ -57,7 +57,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-insta
 ```
 It's recommended to answer `y` to all questions.
 
-Section 3 - **Installing Home Assistant**
+### Section 3 - **Installing Home Assistant** ###
 
 3.1) To run the Home Assistant OS VM install script, copy and paste the following command into the Proxmox Shell.
 
