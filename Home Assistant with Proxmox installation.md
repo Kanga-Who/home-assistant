@@ -2,7 +2,7 @@
 
 This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
-This installation uses an official image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required.
+This installation uses an official image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required. Many thanks to @tteck for his edits to this guide and excellent scripts available [HERE](https://github.com/tteck/Proxmox)
 
 What is Home Assistant?
 
