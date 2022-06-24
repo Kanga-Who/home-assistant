@@ -2,7 +2,7 @@
 
 This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
-This installation uses an official image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required. Many thanks to @tteck for his edits to this guide and excellent scripts available [HERE](https://github.com/tteck/Proxmox)
+This installation uses an official image provided by the Home Assistant team and is considered a supported installation method. This method of installation is considered medium difficulty and some knowledge of how to use and interact with Linux is required. Many thanks to @tteck for his edits to this guide and excellent scripts and other helpful information, available [HERE](https://github.com/tteck/Proxmox).
 
 What is Home Assistant?
 
@@ -47,7 +47,7 @@ After 1-2 minutes, you should be able to access Proxmox at `https://MACHINE_IP:8
 
 Section 2 - **Configure and Update Proxmox**
 
-2.1) Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. This has been made very simple with a script created by @tteck. Information about the script can be found [HERE](https://tteck.github.io/Proxmox/) on his Github page.
+2.1) Before configuring anything in the Proxmox interface, you will start by updating the Proxmox OS to make sure all the latest updates and security patches are installed. This has been made very simple with scripts created by @tteck.
 
 To run the Proxmox VE 7 Post Install script, copy and paste the following command into the Proxmox Shell.
 
@@ -58,8 +58,6 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-insta
 It's recommended to answer `y` to all questions.
 
 Section 3 - **Installing Home Assistant**
-
-Installing Home Assistant in Proxmox has been made very simple with an excellent script created by @tteck. Information about the script can be found [HERE](https://tteck.github.io/Proxmox/) on his Github page.
 
 3.1) To run the Home Assistant OS VM install script, copy and paste the following command into the Proxmox Shell.
 
