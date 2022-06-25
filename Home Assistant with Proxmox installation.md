@@ -2,11 +2,11 @@
 
 This guide will help you to install Home Assistant, on almost any x86/64 machine type you choose using Proxmox as the operating system. This guide has been tested on machines including a Dell Optiplex SFF 990, Dell Optiplex USFF 780 and a HP T520 thin client.
 
-This guide also utilizes scripts to simplify the installation process, always remember to use due diligence when sourcing scripts and automation tasks from third-party sites.
+This guide also utilizes scripts to simplify the installation process, always remember to use due diligence when sourcing scripts and automation tasks from third-party sites. If you wish to view the source code of the scripst used in this guide a link is available at the bottom.
 
 This installation uses an **Official KVM Image provided by the Home Assistant Team and is considered a supported installation method**. This method of installation is considered easy/medium difficulty and some knowledge of how to use and interact with Linux is suggested.
 
-If you have an existing Home Assistant installation and would like to know how to backup your current configuration to restore later, please see the documentation on [backing up and restoring your configuration](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui).
+If you have an existing Home Assistant installation and would like to know how to backup your current configuration to restore later, please see the documentation on [backing up and restoring your configuration](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui) as well as some additional information [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md).
 
 ## Section 1 - Installing Proxmox VE 7
 
@@ -67,8 +67,6 @@ Once this has finished, you will see **✓ Completed Successfully!**.
 
 3.3) The Home Assistant OS VM will be assigned a different IP address than the one Proxmox VE is using. To find the IP address of the newly created Home Assistant OS VM, click on the VM (eg. haos8.2) then click Summary from the menu list, wait for Guest Agent to start. The IP address listed here is needed to access Home Assistant via a web browser using port 8123 (eg. `http://192.168.1.50:8123`).
 
-Once you can see the login screen, the setup has been completed and you can create a new account (or restore a backup).
+Once you can see the login screen, the setup has been completed and you can set up an account name and password. If you are new to Home Assistant you can now configure any smart devices that Home Assistant has automatically discovered on your network. If you have an existing Home Assistant install and you have a snapshot or YAML files you wish to restore, refer to Home Assistant website on backing up and restoring your configuration, located [HERE](https://www.home-assistant.io/common-tasks/supervised/#making-a-backup-from-the-ui) as well as some additional information [HERE](https://github.com/Kanga-Who/home-assistant/blob/master/Backup%20and%20restore%20your%20config.md)
 
-That’s it, you have now installed Home Assistant OS using Proxmox VE 7
-
-The above scripts (and many more) can be found at https://github.com/tteck/Proxmox
+I welcome feedback on this guide, please feel free to tag me or PM if you have suggestions on how to make improvements. Scripts provided by @tteck. These and other helpful information can be found at https://github.com/tteck/Proxmox
